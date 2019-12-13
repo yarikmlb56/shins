@@ -76,6 +76,7 @@ function javascript_include_tag(include) {
 }
 
 function partial(include) {
+    // console.log(79, include);
     var includePath = '';
     if (include.indexOf('/') === 0) {
         includePath = path.join(globalOptions.root, include + '.md');
@@ -86,6 +87,7 @@ function partial(include) {
         includePath = path.join(globalOptions.root, '/source/includes/'+components.join('/'));
     }
     var includeStr = safeReadFileSync(includePath, 'utf8');
+    // console.log(includeStr);
     return postProcess(md.render(clean(includeStr)));
 }
 
@@ -289,7 +291,6 @@ function render(inputStr, options, callback) {
         hljs.registerLanguage('sh', function (hljs) { return sh; });
 
         while (inputArr.length<3) inputArr.push('');
-
         var content = preProcess(inputArr[2],options);
         content = md.render(clean(content));
         content = postProcess(content);
@@ -298,6 +299,7 @@ function render(inputStr, options, callback) {
         locals.current_page = {};
         locals.current_page.data = header;
         locals.page_content = content;
+
         locals.toc_data = function(content) {
             var $ = cheerio.load(content);
             var result = [];
@@ -320,6 +322,12 @@ function render(inputStr, options, callback) {
                     entry.title = $(this).text();
                     child.content = $(this).html();
                     child.children = [];
+                    const contentData = child.content.split('/');
+                    let methodExists = contentData.length > 1;
+                    if (methodExists) {
+                        child.method = contentData[0];
+                        child.content = contentData[1];
+                    }
                     h2 = child;
                     if (h1) h1.children.push(child);
                 }
@@ -391,7 +399,6 @@ function render(inputStr, options, callback) {
         locals.language_array = language_array;
 
         var ejsOptions = {};
-        ejsOptions.debug = false;
         ejs.renderFile(path.resolve(globalOptions.root, options.layout || 'source/layouts/layout.ejs'), locals, ejsOptions, function (err, str) {
             if (err) reject(err)
             else resolve(str);
