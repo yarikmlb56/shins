@@ -59,8 +59,10 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
-  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  border-right: 1px solid $nav-border-color;
 
   // language selector for mobile devices
   .lang-selector {
@@ -141,7 +143,7 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 28px;
+    line-height: 50px;
   }
 
   li {
@@ -151,6 +153,11 @@ html, body {
     transition-duration: 200ms;
   }
 
+  //.toc-link-header {
+  //  display: flex;
+  //  align-items: center;
+  //}
+
   // This is the currently selected ToC entry
   .toc-link.active {
     background-color: $nav-active-bg;
@@ -159,13 +166,11 @@ html, body {
 
   // this is parent links of the currently selected ToC entry
   .toc-link.active-parent {
-    background-color: $nav-active-parent-bg;
-    color: $nav-active-parent-text;
+    //color: $nav-active-parent-text;
   }
 
   .toc-list-h2 {
     display: none;
-    background-color: $nav-subitem-bg;
     font-weight: 500;
   }
 
@@ -194,11 +199,21 @@ html, body {
       text-decoration: none;
     }
   }
+
+  .toc-h1:after {
+    display: block;
+    content: "";
+    width: 3px;
+    height: 5px;
+    background: url('chevron-right-solid.svg') no-repeat;
+  }
 }
 
 .toc-link, .toc-footer li {
-  padding: 0 $nav-padding 0 $nav-padding;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $nav-padding;
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -207,6 +222,12 @@ html, body {
   transition-property: background;
   transition-timing-function: linear;
   transition-duration: 130ms;
+  border-top: 1px solid $nav-border-color;
+  //border-bottom: 1px solid $nav-border-color;
+
+  &.fa {
+    color: #666767;
+  }
 }
 
 // button to show navigation on mobile devices

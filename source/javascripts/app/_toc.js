@@ -20,11 +20,13 @@
   };
 
   var closeToc = function() {
+      console.log('closeToc');
     $(".toc-wrapper").removeClass('open');
     $("#nav-button").removeClass('open');
   };
 
   function loadToc($toc, tocLinkSelector, tocListSelector, scrollOffset) {
+      console.log('loadToc');
     var headerHeights = {};
     var pageHeight = 0;
     var windowHeight = 0;
@@ -37,6 +39,10 @@
 
       $toc.find(tocLinkSelector).each(function() {
         var targetId = $(this).attr('href');
+          // console.log(42, targetId);
+          // console.log(43, targetId[0]);
+          // console.log(43,  $(targetId));
+          // console.log(44,  $(targetId).offset());
         if (targetId[0] === "#") {
           headerHeights[targetId] = $(targetId).offset().top;
         }
@@ -44,6 +50,7 @@
     };
 
     var refreshToc = function() {
+        console.log('refreshToc');
       var currentTop = $(document).scrollTop() + scrollOffset;
 
       if (currentTop + windowHeight >= pageHeight) {
@@ -56,6 +63,7 @@
       var best = null;
       for (var name in headerHeights) {
         if ((headerHeights[name] < currentTop && headerHeights[name] > headerHeights[best]) || best === null) {
+            console.log(66);
           best = name;
         }
       }
@@ -67,6 +75,7 @@
       }
 
       var $best = $toc.find("[href='" + best + "']").first();
+      console.log(77, $best);
       if (!$best.hasClass("active")) {
         // .active is applied to the ToC link we're currently on, and its parent <ul>s selected by tocListSelector
         // .active-expanded is applied to the ToC links that are parents of this one
@@ -90,7 +99,9 @@
     };
 
     var makeToc = function() {
+      console.log('makeToc');
       recacheHeights();
+        console.log(98);
       refreshToc();
 
       $("#nav-button").click(function() {
@@ -99,10 +110,12 @@
         return false;
       });
       $(".page-wrapper").click(closeToc);
+        console.log(107, $(".toc-link"));
       $(".toc-link").click(closeToc);
 
       // reload immediately after scrolling on toc click
       $toc.find(tocLinkSelector).click(function() {
+          console.log(110);
         setTimeout(function() {
           refreshToc();
         }, 0);

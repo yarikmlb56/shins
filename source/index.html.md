@@ -1,5 +1,5 @@
 ---
-title: API for Tax Calculator v0.0.2 alfa, Nov 2019
+title: API for Tax Calculator v0.0.2 alfa, Dec 2019
 language_tabs:
   - ruby: Ruby
   - python: Python
@@ -13,7 +13,7 @@ headingLevel: 2
 
 <!-- Generator: Widdershins v3.6.6 -->
 
-<h1 id="api-for-tax-calculator">API for Tax Calculator v0.0.2 alfa, Nov 2019</h1>
+<h1 id="api-for-tax-calculator">API for Tax Calculator v0.0.2 alfa, Dec 2019</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -21,7 +21,7 @@ Vertex API for Tax Calculator.
 
 Base URLs:
 
-* <a href="http://localhost:8004/">http://localhost:8004/</a>
+* <a href="/api/v1.2/saletax">/api/v1.2/saletax</a>
 
 Web: <a href="http://www.vertex.com">API Support</a> 
 License: <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>
@@ -35,7 +35,7 @@ License: <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</
 
 <h1 id="api-for-tax-calculator-notification-template">Notification template</h1>
 
-## Return registered templates.
+## GET/Return registered templates.
 
 > Code samples
 
@@ -48,7 +48,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/templates',
+result = RestClient.get '/api/v1.2/saletax/templates',
   params: {
   }, headers: headers
 
@@ -63,7 +63,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/templates', headers = headers)
+r = requests.get('/api/v1.2/saletax/templates', headers = headers)
 
 print(r.json())
 
@@ -93,16 +93,16 @@ Returns registered templates for current sale channel.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns collectin of the templates for 
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns collectin of the templates for 
 current sale channel.|[Templates](#schematemplates)|
-|404|Not Found|Unable to find any template.|[Errors](#schemaerrors)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find any template.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Register new template.
+## POST/Register new template.
 
 > Code samples
 
@@ -116,7 +116,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.post 'http://localhost:8004/templates',
+result = RestClient.post '/api/v1.2/saletax/templates',
   params: {
   }, headers: headers
 
@@ -132,7 +132,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.post('http://localhost:8004/templates', headers = headers)
+r = requests.post('/api/v1.2/saletax/templates', headers = headers)
 
 print(r.json())
 
@@ -147,7 +147,6 @@ for current sale channel.
 
 ```json
 {
-  "id": 624,
   "name": "email",
   "body": " Dear {name}, Your account is activated."
 }
@@ -155,7 +154,7 @@ for current sale channel.
 
 <h3 id="register-new-template.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |body|body|[Template](#schematemplate)|true|none|
 
@@ -175,9 +174,9 @@ for current sale channel.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Template is added successfully.|[Template](#schematemplate)|
-|400|Bad Request|Unable to register template.|[Errors](#schemaerrors)|
-|404|Not Found|Unable to register template. 
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Template is added successfully.|[TemplateEntity](#schematemplateentity)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to register template.|[Errors](#schemaerrors)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to register template. 
 Template with the same name is already registered.|[Errors](#schemaerrors)|
 
 <aside class="warning">
@@ -185,7 +184,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 apiKeyAuth
 </aside>
 
-## Get template.
+## GET/Get template.
 
 > Code samples
 
@@ -198,7 +197,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/templates/{templateId}',
+result = RestClient.get '/api/v1.2/saletax/templates/{templateId}',
   params: {
   }, headers: headers
 
@@ -213,7 +212,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/templates/{templateId}', headers = headers)
+r = requests.get('/api/v1.2/saletax/templates/{templateId}', headers = headers)
 
 print(r.json())
 
@@ -225,7 +224,7 @@ Returns template with defined id.
 
 <h3 id="get-template.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |templateId|path|string|true|Template id.|
 
@@ -249,15 +248,15 @@ Returns template with defined id.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Template|[Template](#schematemplate)|
-|404|Not Found|Unable to find template.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Template|[TemplateEntity](#schematemplateentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find template.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Update template.
+## PATCH/Update template.
 
 > Code samples
 
@@ -271,7 +270,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.patch 'http://localhost:8004/templates/{templateId}',
+result = RestClient.patch '/api/v1.2/saletax/templates/{templateId}',
   params: {
   }, headers: headers
 
@@ -287,7 +286,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.patch('http://localhost:8004/templates/{templateId}', headers = headers)
+r = requests.patch('/api/v1.2/saletax/templates/{templateId}', headers = headers)
 
 print(r.json())
 
@@ -301,7 +300,6 @@ Makes changes in the defined template.
 
 ```json
 {
-  "id": 624,
   "name": "email",
   "body": " Dear {name}, Your account is activated."
 }
@@ -309,7 +307,7 @@ Makes changes in the defined template.
 
 <h3 id="update-template.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |templateId|path|string|true|Template id.|
 |body|body|[Template](#schematemplate)|true|none|
@@ -334,15 +332,15 @@ Makes changes in the defined template.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Template is updated successfully.|[Template](#schematemplate)|
-|404|Not Found|Unable to update template.|[Errors](#schemaerrors)|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Template is updated successfully.|[TemplateEntity](#schematemplateentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to update template.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Delete template.
+## DELETE/Delete template.
 
 > Code samples
 
@@ -355,7 +353,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.delete 'http://localhost:8004/templates/{templateId}',
+result = RestClient.delete '/api/v1.2/saletax/templates/{templateId}',
   params: {
   }, headers: headers
 
@@ -370,7 +368,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.delete('http://localhost:8004/templates/{templateId}', headers = headers)
+r = requests.delete('/api/v1.2/saletax/templates/{templateId}', headers = headers)
 
 print(r.json())
 
@@ -382,7 +380,7 @@ Deletes the defined template.
 
 <h3 id="delete-template.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |templateId|path|string|true|Template id.|
 
@@ -406,15 +404,15 @@ Deletes the defined template.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Template is deleted successfully.|[Template](#schematemplate)|
-|404|Not Found|Template not found.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Template is deleted successfully.|[TemplateEntity](#schematemplateentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Template not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Send notification.
+## POST/Send notification.
 
 > Code samples
 
@@ -428,7 +426,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.post 'http://localhost:8004/templates/{templateId}/send',
+result = RestClient.post '/api/v1.2/saletax/templates/{templateId}/send',
   params: {
   }, headers: headers
 
@@ -444,7 +442,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.post('http://localhost:8004/templates/{templateId}/send', headers = headers)
+r = requests.post('/api/v1.2/saletax/templates/{templateId}/send', headers = headers)
 
 print(r.json())
 
@@ -452,7 +450,7 @@ print(r.json())
 
 `POST /templates/{templateId}/send`
 
-The endpoint is used to notify current \
+The endpoint is used to notify current 
 sale channel by e-mail. 
 
 > Body parameter
@@ -472,7 +470,7 @@ sale channel by e-mail.
 
 <h3 id="send-notification.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |templateId|path|string|true|Template id.|
 |body|body|[Message](#schemamessage)|true|none|
@@ -487,6 +485,7 @@ sale channel by e-mail.
 
 ```json
 {
+  "id": 624,
   "email": "user@vertex.com",
   "subject": "Account confirmation",
   "parameters": [
@@ -502,9 +501,9 @@ sale channel by e-mail.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Notification sent successfully.
-Returns fulfilled message.|[Message](#schemamessage)|
-|400|Bad Request|Unable to send notification.|[Errors](#schemaerrors)|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Notification sent successfully.
+Returns fulfilled message.|[MessageEntity](#schemamessageentity)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to send notification.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -513,7 +512,7 @@ apiKeyAuth
 
 <h1 id="api-for-tax-calculator-account-management">Account Management</h1>
 
-## Create new account.
+## POST/Create new account.
 
 > Code samples
 
@@ -527,7 +526,7 @@ headers = {
   'platform' => 'string'
 }
 
-result = RestClient.post 'http://localhost:8004/accounts',
+result = RestClient.post '/api/v1.2/saletax/accounts',
   params: {
   }, headers: headers
 
@@ -543,7 +542,7 @@ headers = {
   'platform': 'string'
 }
 
-r = requests.post('http://localhost:8004/accounts', headers = headers)
+r = requests.post('/api/v1.2/saletax/accounts', headers = headers)
 
 print(r.json())
 
@@ -563,7 +562,6 @@ creates its own account.
 
 ```json
 {
-  "id": 656,
   "name": "Cofe shop",
   "email": "shop@vertex.com",
   "password": "password"
@@ -572,7 +570,7 @@ creates its own account.
 
 <h3 id="create-new-account.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |platform|header|string|false|Platform API key.|
 |body|body|[Account](#schemaaccount)|true|none|
@@ -589,8 +587,7 @@ creates its own account.
 {
   "id": 656,
   "name": "Cofe shop",
-  "email": "shop@vertex.com",
-  "password": "password"
+  "email": "shop@vertex.com"
 }
 ```
 
@@ -598,98 +595,15 @@ creates its own account.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Account created successfully.|[Account](#schemaaccount)|
-|400|Bad Request|Unable to create account.|[Errors](#schemaerrors)|
-|409|Conflict|Account already exists.|[Errors](#schemaerrors)|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Account created successfully.|[AccountEntity](#schemaaccountentity)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to create account.|[Errors](#schemaerrors)|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Account already exists.|[Errors](#schemaerrors)|
 
 <aside class="success">
 This operation does not require authentication
 </aside>
 
-## Update an account
-
-> Code samples
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer {access-token}'
-}
-
-result = RestClient.patch 'http://localhost:8004/accounts',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {access-token}'
-}
-
-r = requests.patch('http://localhost:8004/accounts', headers = headers)
-
-print(r.json())
-
-```
-
-`PATCH /accounts`
-
-Updates account password.
-
-> Body parameter
-
-```json
-{
-  "id": 656,
-  "name": "Cofe shop",
-  "email": "shop@vertex.com",
-  "password": "password"
-}
-```
-
-<h3 id="update-an-account-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[Account](#schemaaccount)|true|none|
-
-> Example responses
-
-> 204 Response
-
-```json
-{
-  "id": 656,
-  "name": "Cofe shop",
-  "email": "shop@vertex.com",
-  "password": "password"
-}
-```
-
-<h3 id="update-an-account-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|204|No Content|Account updated successfully.|[Account](#schemaaccount)|
-|400|Bad Request|Unable to update account.|[Errors](#schemaerrors)|
-|404|Not Found|Account not found.|[Errors](#schemaerrors)|
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-jwtAuth, apiKeyAuth
-</aside>
-
-## Get account information
+## GET/Get account information.
 
 > Code samples
 
@@ -702,7 +616,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/accounts/info',
+result = RestClient.get '/api/v1.2/saletax/accounts/info',
   params: {
   }, headers: headers
 
@@ -717,7 +631,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/accounts/info', headers = headers)
+r = requests.get('/api/v1.2/saletax/accounts/info', headers = headers)
 
 print(r.json())
 
@@ -730,9 +644,9 @@ tax calculation requires for defined account.
 For sale platform email as a query can be 
 used as an account identifier.
 
-<h3 id="get-account-information-parameters">Parameters</h3>
+<h3 id="get-account-information.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |email|query|string|false|Account identifier.|
 
@@ -749,8 +663,7 @@ used as an account identifier.
   "account": {
     "id": 656,
     "name": "Cofe shop",
-    "email": "shop@vertex.com",
-    "password": "password"
+    "email": "shop@vertex.com"
   },
   "businessInfo": {
     "id": 234,
@@ -773,19 +686,177 @@ used as an account identifier.
 }
 ```
 
-<h3 id="get-account-information-responses">Responses</h3>
+<h3 id="get-account-information.-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns account information.|[AccountInfo](#schemaaccountinfo)|
-|404|Not Found|Unable to find an account.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns account information.|[AccountInfo](#schemaaccountinfo)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find an account.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Get a link for resetting account password.
+## PATCH/Update an account.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer {access-token}'
+}
+
+result = RestClient.patch '/api/v1.2/saletax/accounts/{email}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {access-token}'
+}
+
+r = requests.patch('/api/v1.2/saletax/accounts/{email}', headers = headers)
+
+print(r.json())
+
+```
+
+`PATCH /accounts/{email}`
+
+Updates account password.
+
+> Body parameter
+
+```json
+{
+  "name": "Cofe shop",
+  "email": "shop@vertex.com",
+  "password": "password"
+}
+```
+
+<h3 id="update-an-account.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description3|
+|---|---|---|---|---|
+|body|body|[Account](#schemaaccount)|true|none|
+|email|path|string|true|Account identifier.|
+
+#### Detailed descriptions
+
+**email**: Account identifier.
+
+> Example responses
+
+> 204 Response
+
+```json
+{
+  "id": 656,
+  "name": "Cofe shop",
+  "email": "shop@vertex.com"
+}
+```
+
+<h3 id="update-an-account.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Account updated successfully.|[AccountEntity](#schemaaccountentity)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to update account.|[Errors](#schemaerrors)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Account not found.|[Errors](#schemaerrors)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+jwtAuth, apiKeyAuth
+</aside>
+
+## DELETE/Make an account inactive.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'apikey' => 'API_KEY'
+}
+
+result = RestClient.delete '/api/v1.2/saletax/accounts/{email}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'apikey': 'API_KEY'
+}
+
+r = requests.delete('/api/v1.2/saletax/accounts/{email}', headers = headers)
+
+print(r.json())
+
+```
+
+`DELETE /accounts/{email}`
+
+"Make defined account inactive.
+
+<h3 id="make-an-account-inactive.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description3|
+|---|---|---|---|---|
+|email|path|string|true|Account identifier.|
+
+#### Detailed descriptions
+
+**email**: Account identifier.
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "id": 656,
+  "name": "Cofe shop",
+  "email": "shop@vertex.com"
+}
+```
+
+<h3 id="make-an-account-inactive.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Account updated successfully.|[AccountEntity](#schemaaccountentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to make an account inactive.|[Errors](#schemaerrors)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+apiKeyAuth
+</aside>
+
+## POST/Get a link for resetting account password.
 
 > Code samples
 
@@ -797,7 +868,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'http://localhost:8004/accounts/{email}/resetPassword',
+result = RestClient.post '/api/v1.2/saletax/accounts/{email}/resetPassword',
   params: {
   }, headers: headers
 
@@ -811,7 +882,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('http://localhost:8004/accounts/{email}/resetPassword', headers = headers)
+r = requests.post('/api/v1.2/saletax/accounts/{email}/resetPassword', headers = headers)
 
 print(r.json())
 
@@ -824,7 +895,7 @@ can be used for resetting account password.
 
 <h3 id="get-a-link-for-resetting-account-password.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |email|path|string|true|Account identifier.|
 
@@ -844,9 +915,9 @@ can be used for resetting account password.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Link created successfully.|[Link](#schemalink)|
-|400|Bad Request|Unable to create a link.|[Errors](#schemaerrors)|
-|409|Conflict|Unble to find account.|[Errors](#schemaerrors)|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Link created successfully.|[Link](#schemalink)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to create a link.|[Errors](#schemaerrors)|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Unble to find account.|[Errors](#schemaerrors)|
 
 <aside class="success">
 This operation does not require authentication
@@ -854,7 +925,7 @@ This operation does not require authentication
 
 <h1 id="api-for-tax-calculator-token-management">Token Management</h1>
 
-## Get active tokens
+## GET/Get active tokens
 
 > Code samples
 
@@ -867,7 +938,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/tokens',
+result = RestClient.get '/api/v1.2/saletax/tokens',
   params: {
   }, headers: headers
 
@@ -882,7 +953,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/tokens', headers = headers)
+r = requests.get('/api/v1.2/saletax/tokens', headers = headers)
 
 print(r.json())
 
@@ -894,7 +965,7 @@ Returns collection of active tokens for current sale point.
 
 <h3 id="get-active-tokens-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |page|query|integer|false|Defines page number.|
 |size|query|integer|false|Defines number of the records for single page. |
@@ -938,15 +1009,15 @@ Returns collection of active tokens for current sale point.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns token.|[Tokens](#schematokens)|
-|404|Not Found|Unable to return tokens.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns token.|[Tokens](#schematokens)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to return tokens.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Generate token
+## POST/Generate token.
 
 > Code samples
 
@@ -960,7 +1031,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.post 'http://localhost:8004/tokens',
+result = RestClient.post '/api/v1.2/saletax/tokens',
   params: {
   }, headers: headers
 
@@ -976,7 +1047,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.post('http://localhost:8004/tokens', headers = headers)
+r = requests.post('/api/v1.2/saletax/tokens', headers = headers)
 
 print(r.json())
 
@@ -994,9 +1065,9 @@ Creates a new token for API call.
 }
 ```
 
-<h3 id="generate-token-parameters">Parameters</h3>
+<h3 id="generate-token.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |body|body|[TokenType](#schematokentype)|true|none|
 
@@ -1012,19 +1083,19 @@ Creates a new token for API call.
 }
 ```
 
-<h3 id="generate-token-responses">Responses</h3>
+<h3 id="generate-token.-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Returns a token.|[Token](#schematoken)|
-|400|Bad Request|Unable to create token.|[Errors](#schemaerrors)|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns a token.|[Token](#schematoken)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to create token.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth, jwtAuth
 </aside>
 
-## Revoke the token.
+## DELETE/Revoke the token.
 
 > Code samples
 
@@ -1037,7 +1108,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.delete 'http://localhost:8004/tokens/{token}',
+result = RestClient.delete '/api/v1.2/saletax/tokens/{token}',
   params: {
   }, headers: headers
 
@@ -1052,7 +1123,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.delete('http://localhost:8004/tokens/{token}', headers = headers)
+r = requests.delete('/api/v1.2/saletax/tokens/{token}', headers = headers)
 
 print(r.json())
 
@@ -1067,7 +1138,7 @@ They can't be revoked.
 
 <h3 id="revoke-the-token.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |token|path|string|true|none|
 
@@ -1087,9 +1158,9 @@ They can't be revoked.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|The token revoken successfully.|[Token](#schematoken)|
-|404|Not Found|Unable to revoke token.|[Errors](#schemaerrors)|
-|409|Conflict|Unable to revoke the last token.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The token revoken successfully.|[Token](#schematoken)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to revoke token.|[Errors](#schemaerrors)|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Unable to revoke the last token.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1098,7 +1169,7 @@ apiKeyAuth
 
 <h1 id="api-for-tax-calculator-contact-information">Contact Information</h1>
 
-## Get contact information.
+## GET/Get contact information.
 
 > Code samples
 
@@ -1111,7 +1182,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/contacts',
+result = RestClient.get '/api/v1.2/saletax/contacts/{contactId}',
   params: {
   }, headers: headers
 
@@ -1126,197 +1197,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/contacts', headers = headers)
-
-print(r.json())
-
-```
-
-`GET /contacts`
-
-The endpoint returns contact information.
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "location": {
-    "id": 653,
-    "type": "administrative",
-    "city": "KNG OF PRUSSA",
-    "state": "PA",
-    "zip": "19406",
-    "zipExt": "1101",
-    "addressLine1": "875 MANCILL MILL RD"
-  },
-  "emails": [
-    "string"
-  ],
-  "phones": [
-    "string"
-  ],
-  "id": 464,
-  "title": "Mr",
-  "name": "Oleksiy",
-  "lastName": "Luchkovskiy"
-}
-```
-
-<h3 id="get-contact-information.-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|OK|Returns contact information.|[ContactInfo](#schemacontactinfo)|
-|404|Not Found|Contact information not found.|[Errors](#schemaerrors)|
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-apiKeyAuth
-</aside>
-
-## Add contact information.
-
-> Code samples
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json',
-  'apikey' => 'API_KEY'
-}
-
-result = RestClient.post 'http://localhost:8004/contacts',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'apikey': 'API_KEY'
-}
-
-r = requests.post('http://localhost:8004/contacts', headers = headers)
-
-print(r.json())
-
-```
-
-`POST /contacts`
-
-The endpoint is used to add contact information.
-
-> Body parameter
-
-```json
-{
-  "location": {
-    "id": 653,
-    "type": "administrative",
-    "city": "KNG OF PRUSSA",
-    "state": "PA",
-    "zip": "19406",
-    "zipExt": "1101",
-    "addressLine1": "875 MANCILL MILL RD"
-  },
-  "emails": [
-    "string"
-  ],
-  "phones": [
-    "string"
-  ],
-  "id": 464,
-  "title": "Mr",
-  "name": "Oleksiy",
-  "lastName": "Luchkovskiy"
-}
-```
-
-<h3 id="add-contact-information.-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[ContactInfo](#schemacontactinfo)|true|none|
-
-> Example responses
-
-> 201 Response
-
-```json
-{
-  "location": {
-    "id": 653,
-    "type": "administrative",
-    "city": "KNG OF PRUSSA",
-    "state": "PA",
-    "zip": "19406",
-    "zipExt": "1101",
-    "addressLine1": "875 MANCILL MILL RD"
-  },
-  "emails": [
-    "string"
-  ],
-  "phones": [
-    "string"
-  ],
-  "id": 464,
-  "title": "Mr",
-  "name": "Oleksiy",
-  "lastName": "Luchkovskiy"
-}
-```
-
-<h3 id="add-contact-information.-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|Created|Contact information added successfully.|[ContactInfo](#schemacontactinfo)|
-|400|Bad Request|Unable to add contact information.|[Errors](#schemaerrors)|
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-apiKeyAuth
-</aside>
-
-## Get contact information
-
-> Code samples
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'apikey' => 'API_KEY'
-}
-
-result = RestClient.get 'http://localhost:8004/contacts/{contactId}',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'apikey': 'API_KEY'
-}
-
-r = requests.get('http://localhost:8004/contacts/{contactId}', headers = headers)
+r = requests.get('/api/v1.2/saletax/contacts/{contactId}', headers = headers)
 
 print(r.json())
 
@@ -1326,9 +1207,9 @@ print(r.json())
 
 The endpoint returns contact information.
 
-<h3 id="get-contact-information-parameters">Parameters</h3>
+<h3 id="get-contact-information.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |contactId|path|integer|true|none|
 
@@ -1348,10 +1229,10 @@ The endpoint returns contact information.
     "addressLine1": "875 MANCILL MILL RD"
   },
   "emails": [
-    "string"
+    "code@vertex.com"
   ],
   "phones": [
-    "string"
+    "444-333-888"
   ],
   "id": 464,
   "title": "Mr",
@@ -1360,19 +1241,19 @@ The endpoint returns contact information.
 }
 ```
 
-<h3 id="get-contact-information-responses">Responses</h3>
+<h3 id="get-contact-information.-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns contact information.|[ContactInfo](#schemacontactinfo)|
-|404|Not Found|Unable to add contact information.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns contact information.|[ContactInfoEntity](#schemacontactinfoentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to add contact information.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Update contact information
+## POST/Add contact information.
 
 > Code samples
 
@@ -1386,7 +1267,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.patch 'http://localhost:8004/contacts/{contactId}',
+result = RestClient.post '/api/v1.2/saletax/contacts',
   params: {
   }, headers: headers
 
@@ -1402,7 +1283,118 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.patch('http://localhost:8004/contacts/{contactId}', headers = headers)
+r = requests.post('/api/v1.2/saletax/contacts', headers = headers)
+
+print(r.json())
+
+```
+
+`POST /contacts`
+
+The endpoint is used to add contact information.
+
+> Body parameter
+
+```json
+{
+  "location": {
+    "type": "administrative",
+    "city": "KNG OF PRUSSA",
+    "state": "PA",
+    "zip": "19406",
+    "zipExt": "1101",
+    "addressLine1": "875 MANCILL MILL RD"
+  },
+  "emails": [
+    "code@vertex.com"
+  ],
+  "phones": [
+    "444-333-888"
+  ],
+  "id": 464,
+  "title": "Mr",
+  "name": "Oleksiy",
+  "lastName": "Luchkovskiy"
+}
+```
+
+<h3 id="add-contact-information.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description3|
+|---|---|---|---|---|
+|body|body|[ContactInfo](#schemacontactinfo)|true|none|
+
+> Example responses
+
+> 201 Response
+
+```json
+{
+  "location": {
+    "id": 653,
+    "type": "administrative",
+    "city": "KNG OF PRUSSA",
+    "state": "PA",
+    "zip": "19406",
+    "zipExt": "1101",
+    "addressLine1": "875 MANCILL MILL RD"
+  },
+  "emails": [
+    "code@vertex.com"
+  ],
+  "phones": [
+    "444-333-888"
+  ],
+  "id": 464,
+  "title": "Mr",
+  "name": "Oleksiy",
+  "lastName": "Luchkovskiy"
+}
+```
+
+<h3 id="add-contact-information.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Contact information added successfully.|[ContactInfoEntity](#schemacontactinfoentity)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to add contact information.|[Errors](#schemaerrors)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+apiKeyAuth
+</aside>
+
+## PATCH/Update contact information.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'apikey' => 'API_KEY'
+}
+
+result = RestClient.patch '/api/v1.2/saletax/contacts/{contactId}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'apikey': 'API_KEY'
+}
+
+r = requests.patch('/api/v1.2/saletax/contacts/{contactId}', headers = headers)
 
 print(r.json())
 
@@ -1417,7 +1409,6 @@ The endpoint is used to update contact information.
 ```json
 {
   "location": {
-    "id": 653,
     "type": "administrative",
     "city": "KNG OF PRUSSA",
     "state": "PA",
@@ -1426,10 +1417,10 @@ The endpoint is used to update contact information.
     "addressLine1": "875 MANCILL MILL RD"
   },
   "emails": [
-    "string"
+    "code@vertex.com"
   ],
   "phones": [
-    "string"
+    "444-333-888"
   ],
   "id": 464,
   "title": "Mr",
@@ -1438,9 +1429,9 @@ The endpoint is used to update contact information.
 }
 ```
 
-<h3 id="update-contact-information-parameters">Parameters</h3>
+<h3 id="update-contact-information.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |contactId|path|string|true|none|
 |body|body|[ContactInfo](#schemacontactinfo)|true|none|
@@ -1461,10 +1452,10 @@ The endpoint is used to update contact information.
     "addressLine1": "875 MANCILL MILL RD"
   },
   "emails": [
-    "string"
+    "code@vertex.com"
   ],
   "phones": [
-    "string"
+    "444-333-888"
   ],
   "id": 464,
   "title": "Mr",
@@ -1473,13 +1464,13 @@ The endpoint is used to update contact information.
 }
 ```
 
-<h3 id="update-contact-information-responses">Responses</h3>
+<h3 id="update-contact-information.-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|204|No Content|Contact information updated successfully|[ContactInfo](#schemacontactinfo)|
-|400|Bad Request|Unable to update contact information.|[Errors](#schemaerrors)|
-|404|Not Found|Unable to update contact information, 
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Contact information updated successfully|[ContactInfoEntity](#schemacontactinfoentity)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to update contact information.|[Errors](#schemaerrors)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to update contact information, 
 account or contact information not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
@@ -1489,7 +1480,7 @@ apiKeyAuth
 
 <h1 id="api-for-tax-calculator-location">Location</h1>
 
-## Get account locations.
+## GET/Get account locations.
 
 > Code samples
 
@@ -1502,7 +1493,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/locations',
+result = RestClient.get '/api/v1.2/saletax/locations',
   params: {
   }, headers: headers
 
@@ -1517,7 +1508,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/locations', headers = headers)
+r = requests.get('/api/v1.2/saletax/locations', headers = headers)
 
 print(r.json())
 
@@ -1552,15 +1543,15 @@ for current sale point.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns location collection|[Locations](#schemalocations)|
-|404|Not Found|Locations not found.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns location collection|[Locations](#schemalocations)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Locations not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Add location.
+## POST/Add location.
 
 > Code samples
 
@@ -1574,7 +1565,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.post 'http://localhost:8004/locations',
+result = RestClient.post '/api/v1.2/saletax/locations',
   params: {
   }, headers: headers
 
@@ -1590,7 +1581,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.post('http://localhost:8004/locations', headers = headers)
+r = requests.post('/api/v1.2/saletax/locations', headers = headers)
 
 print(r.json())
 
@@ -1608,7 +1599,6 @@ only one adminisrative location are possible.
 
 ```json
 {
-  "id": 653,
   "type": "administrative",
   "city": "KNG OF PRUSSA",
   "state": "PA",
@@ -1620,26 +1610,23 @@ only one adminisrative location are possible.
 
 <h3 id="add-location.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |body|body|[Location](#schemalocation)|true|none|
 
 > Example responses
 
-> 400 Response
+> 201 Response
 
 ```json
 {
-  "errors": [
-    {
-      "code": 1234,
-      "message": "Illegal request parameter",
-      "details": [
-        "details string1",
-        "details string2"
-      ]
-    }
-  ]
+  "id": 653,
+  "type": "administrative",
+  "city": "KNG OF PRUSSA",
+  "state": "PA",
+  "zip": "19406",
+  "zipExt": "1101",
+  "addressLine1": "875 MANCILL MILL RD"
 }
 ```
 
@@ -1647,9 +1634,8 @@ only one adminisrative location are possible.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Location added successfully|None|
-|400|Bad Request|Unable to add location.|[Errors](#schemaerrors)|
-|404|Not Found|Unable to add location. 
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Location added successfully|[LocationEntity](#schemalocationentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to add location. 
 Location is already added.|[Errors](#schemaerrors)|
 
 <aside class="warning">
@@ -1657,7 +1643,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 apiKeyAuth
 </aside>
 
-## Get location.
+## GET/Get location.
 
 > Code samples
 
@@ -1670,7 +1656,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/locations/{locationId}',
+result = RestClient.get '/api/v1.2/saletax/locations/{locationId}',
   params: {
   }, headers: headers
 
@@ -1685,7 +1671,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/locations/{locationId}', headers = headers)
+r = requests.get('/api/v1.2/saletax/locations/{locationId}', headers = headers)
 
 print(r.json())
 
@@ -1697,7 +1683,7 @@ Returns location with defined id.
 
 <h3 id="get-location.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |locationId|path|string|true|Location Id.|
 
@@ -1725,15 +1711,15 @@ Returns location with defined id.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns location|[Location](#schemalocation)|
-|404|Not Found|Location not found.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns location|[LocationEntity](#schemalocationentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Location not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Update location.
+## PATCH/Update location.
 
 > Code samples
 
@@ -1747,7 +1733,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.patch 'http://localhost:8004/locations/{locationId}',
+result = RestClient.patch '/api/v1.2/saletax/locations/{locationId}',
   params: {
   }, headers: headers
 
@@ -1763,7 +1749,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.patch('http://localhost:8004/locations/{locationId}', headers = headers)
+r = requests.patch('/api/v1.2/saletax/locations/{locationId}', headers = headers)
 
 print(r.json())
 
@@ -1777,7 +1763,6 @@ The endpoint is used to update location.
 
 ```json
 {
-  "id": 653,
   "type": "administrative",
   "city": "KNG OF PRUSSA",
   "state": "PA",
@@ -1789,7 +1774,7 @@ The endpoint is used to update location.
 
 <h3 id="update-location.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |locationId|path|integer|true|Location Id. |
 |body|body|[Location](#schemalocation)|true|none|
@@ -1818,9 +1803,9 @@ The endpoint is used to update location.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|204|No Content|Location is updated successfully.|[Location](#schemalocation)|
-|400|Bad Request|Unable to update location.|[Errors](#schemaerrors)|
-|404|Not Found|Unable to update location. 
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Location is updated successfully.|[LocationEntity](#schemalocationentity)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to update location.|[Errors](#schemaerrors)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to update location. 
 Location not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
@@ -1828,7 +1813,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 apiKeyAuth
 </aside>
 
-## Delete location.
+## DELETE/Delete location.
 
 > Code samples
 
@@ -1841,7 +1826,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.delete 'http://localhost:8004/locations/{locationId}',
+result = RestClient.delete '/api/v1.2/saletax/locations/{locationId}',
   params: {
   }, headers: headers
 
@@ -1856,7 +1841,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.delete('http://localhost:8004/locations/{locationId}', headers = headers)
+r = requests.delete('/api/v1.2/saletax/locations/{locationId}', headers = headers)
 
 print(r.json())
 
@@ -1870,7 +1855,7 @@ It can't be removed.
 
 <h3 id="delete-location.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |locationId|path|string|true|Location Id. |
 
@@ -1898,15 +1883,15 @@ It can't be removed.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Location deleted successfully.|[Location](#schemalocation)|
-|404|Not Found|Location not found.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Location deleted successfully.|[LocationEntity](#schemalocationentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Location not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Standartize location
+## POST/Standardize a location.
 
 > Code samples
 
@@ -1920,7 +1905,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.post 'http://localhost:8004/locations/standartize',
+result = RestClient.post '/api/v1.2/saletax/locations/standardize',
   params: {
   }, headers: headers
 
@@ -1936,15 +1921,15 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.post('http://localhost:8004/locations/standartize', headers = headers)
+r = requests.post('/api/v1.2/saletax/locations/standardize', headers = headers)
 
 print(r.json())
 
 ```
 
-`POST /locations/standartize`
+`POST /locations/standardize`
 
-Validates location and return result in strandart format.
+Validates location and return result in standard format.
 It helps to keep addresses in unified format and 
 find zip extension.
 
@@ -1952,7 +1937,6 @@ find zip extension.
 
 ```json
 {
-  "id": 653,
   "type": "administrative",
   "city": "KNG OF PRUSSA",
   "state": "PA",
@@ -1962,9 +1946,9 @@ find zip extension.
 }
 ```
 
-<h3 id="standartize-location-parameters">Parameters</h3>
+<h3 id="standardize-a-location.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |body|body|[Location](#schemalocation)|false|none|
 
@@ -1974,7 +1958,6 @@ find zip extension.
 
 ```json
 {
-  "id": 653,
   "type": "administrative",
   "city": "KNG OF PRUSSA",
   "state": "PA",
@@ -1984,13 +1967,13 @@ find zip extension.
 }
 ```
 
-<h3 id="standartize-location-responses">Responses</h3>
+<h3 id="standardize-a-location.-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns location is standart format.|[Location](#schemalocation)|
-|400|Bad Request|Unable to validate defined location.|[Errors](#schemaerrors)|
-|404|Not Found|Unable to validate defined location.
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns location is standard format.|[Location](#schemalocation)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to validate defined location.|[Errors](#schemaerrors)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to validate defined location.
 Location has invalid format.|[Errors](#schemaerrors)|
 
 <aside class="warning">
@@ -2000,7 +1983,7 @@ apiKeyAuth
 
 <h1 id="api-for-tax-calculator-business-info">Business Info</h1>
 
-## Get business information.
+## GET/Get business information.
 
 > Code samples
 
@@ -2013,7 +1996,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/businessInfo',
+result = RestClient.get '/api/v1.2/saletax/businessInfos',
   params: {
   }, headers: headers
 
@@ -2028,15 +2011,16 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/businessInfo', headers = headers)
+r = requests.get('/api/v1.2/saletax/businessInfos', headers = headers)
 
 print(r.json())
 
 ```
 
-`GET /businessInfo`
+`GET /businessInfos`
 
-Returns business information with for current sales point.
+Returns business information 
+for current sales point.
 
 > Example responses
 
@@ -2054,15 +2038,15 @@ Returns business information with for current sales point.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns business information.|[BusinessInfo](#schemabusinessinfo)|
-|404|Not Found|Business information not found.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns business information.|[BusinessInfoEntity](#schemabusinessinfoentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Business information not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Update business information.
+## POST/Add business information.
 
 > Code samples
 
@@ -2076,7 +2060,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.put 'http://localhost:8004/businessInfo',
+result = RestClient.post '/api/v1.2/saletax/businessInfos',
   params: {
   }, headers: headers
 
@@ -2092,21 +2076,100 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.put('http://localhost:8004/businessInfo', headers = headers)
+r = requests.post('/api/v1.2/saletax/businessInfos', headers = headers)
 
 print(r.json())
 
 ```
 
-`PUT /businessInfo`
+`POST /businessInfos`
 
-The endpoint is used to update business information.
+The endpoint is used to add business information.
 
 > Body parameter
 
 ```json
 {
-  "id": 234,
+  "businessName": "Cofe shop LTD",
+  "fedTaxId": "2321-2323-2132"
+}
+```
+
+<h3 id="add-business-information.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description3|
+|---|---|---|---|---|
+|body|body|[BusinessInfo](#schemabusinessinfo)|true|none|
+
+> Example responses
+
+> 201 Response
+
+```json
+{
+  "businessName": "Cofe shop LTD",
+  "fedTaxId": "2321-2323-2132"
+}
+```
+
+<h3 id="add-business-information.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Business information added successfully.|[BusinessInfo](#schemabusinessinfo)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to add business information.|[Errors](#schemaerrors)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to add business information.
+Business infomatin aleready added.|[Errors](#schemaerrors)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+apiKeyAuth
+</aside>
+
+## PATCH/Update business information.
+
+> Code samples
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'apikey' => 'API_KEY'
+}
+
+result = RestClient.patch '/api/v1.2/saletax/businessInfos/{businessInfoId}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'apikey': 'API_KEY'
+}
+
+r = requests.patch('/api/v1.2/saletax/businessInfos/{businessInfoId}', headers = headers)
+
+print(r.json())
+
+```
+
+`PATCH /businessInfos/{businessInfoId}`
+
+Update business information.
+
+> Body parameter
+
+```json
+{
   "businessName": "Cofe shop LTD",
   "fedTaxId": "2321-2323-2132"
 }
@@ -2114,9 +2177,14 @@ The endpoint is used to update business information.
 
 <h3 id="update-business-information.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |body|body|[BusinessInfo](#schemabusinessinfo)|true|none|
+|businessInfoId|path|string|true|Business Info Id. |
+
+#### Detailed descriptions
+
+**businessInfoId**: Business Info Id. 
 
 > Example responses
 
@@ -2134,92 +2202,10 @@ The endpoint is used to update business information.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|204|No Content|Business information updated sucessfully.|[BusinessInfo](#schemabusinessinfo)|
-|400|Bad Request|Unable to update business information.|[Errors](#schemaerrors)|
-|404|Not Found|Unable to update business information.
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Business information updated sucessfully.|[BusinessInfoEntity](#schemabusinessinfoentity)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to update business information.|[Errors](#schemaerrors)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to update business information.
 Business information not found.|[Errors](#schemaerrors)|
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-apiKeyAuth
-</aside>
-
-## Add business information.
-
-> Code samples
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json',
-  'apikey' => 'API_KEY'
-}
-
-result = RestClient.post 'http://localhost:8004/businessInfo',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'apikey': 'API_KEY'
-}
-
-r = requests.post('http://localhost:8004/businessInfo', headers = headers)
-
-print(r.json())
-
-```
-
-`POST /businessInfo`
-
-The endpoint is used to add business information.
-
-> Body parameter
-
-```json
-{
-  "id": 234,
-  "businessName": "Cofe shop LTD",
-  "fedTaxId": "2321-2323-2132"
-}
-```
-
-<h3 id="add-business-information.-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[BusinessInfo](#schemabusinessinfo)|true|none|
-
-> Example responses
-
-> 201 Response
-
-```json
-{
-  "id": 234,
-  "businessName": "Cofe shop LTD",
-  "fedTaxId": "2321-2323-2132"
-}
-```
-
-<h3 id="add-business-information.-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|201|Created|Business information added successfully.|[BusinessInfo](#schemabusinessinfo)|
-|400|Bad Request|Unable to add business information.|[Errors](#schemaerrors)|
-|404|Not Found|Unable to add business information.
-Business infomatin aleready added.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -2228,7 +2214,7 @@ apiKeyAuth
 
 <h1 id="api-for-tax-calculator-product-catalog">Product Catalog</h1>
 
-## Return available product catalogs.
+## GET/Return available product catalogs.
 
 > Code samples
 
@@ -2241,7 +2227,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/catalogs',
+result = RestClient.get '/api/v1.2/saletax/catalogs',
   params: {
   }, headers: headers
 
@@ -2256,7 +2242,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/catalogs', headers = headers)
+r = requests.get('/api/v1.2/saletax/catalogs', headers = headers)
 
 print(r.json())
 
@@ -2265,7 +2251,8 @@ print(r.json())
 `GET /catalogs`
 
 Returns product catalogs for current sale point.
-Usually it one.
+SBT has only one catalog.
+Partner is able to get set of the catalogs. 
 
 > Example responses
 
@@ -2275,10 +2262,11 @@ Usually it one.
 {
   "catalogs": [
     {
+      "id": 0,
+      "salePoint": "string",
       "name": "string",
       "merchantId": 0,
-      "platformId": 0,
-      "id": 0
+      "platformId": 0
     }
   ]
 }
@@ -2288,15 +2276,15 @@ Usually it one.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns product catalog.|[ProductCatalogs](#schemaproductcatalogs)|
-|404|Not Found|Unable to find product calalog.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns product catalog.|[ProductCatalogs](#schemaproductcatalogs)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find product calalog.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Upload and validate product catalog. 
+## POST/Upload and validate product catalog. 
 Return a process status.
 
 > Code samples
@@ -2310,7 +2298,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.post 'http://localhost:8004/catalogs',
+result = RestClient.post '/api/v1.2/saletax/catalogs',
   params: {
   }, headers: headers
 
@@ -2325,7 +2313,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.post('http://localhost:8004/catalogs', headers = headers)
+r = requests.post('/api/v1.2/saletax/catalogs', headers = headers)
 
 print(r.json())
 
@@ -2351,17 +2339,17 @@ return-a-process-status.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Returns a link which is used for checking upload 
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns a link which is used for checking upload 
 processing status.|[Link](#schemalink)|
-|400|Bad Request|Unable to upload catalog.|[Errors](#schemaerrors)|
-|404|Not Found|Catalog has invalid structure.|[Errors](#schemaerrors)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to upload catalog.|[Errors](#schemaerrors)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Catalog has invalid structure.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Return product catalog
+## GET/Return product catalog
 
 > Code samples
 
@@ -2374,7 +2362,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/catalogs/{catalogId}',
+result = RestClient.get '/api/v1.2/saletax/catalogs/{catalogId}',
   params: {
   }, headers: headers
 
@@ -2389,7 +2377,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/catalogs/{catalogId}', headers = headers)
+r = requests.get('/api/v1.2/saletax/catalogs/{catalogId}', headers = headers)
 
 print(r.json())
 
@@ -2401,7 +2389,7 @@ Returns product catalog with defined id.
 
 <h3 id="return-product-catalog-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |catalogId|path|integer|true|Catalog id.|
 
@@ -2415,10 +2403,11 @@ Returns product catalog with defined id.
 
 ```json
 {
+  "id": 0,
+  "salePoint": "string",
   "name": "string",
   "merchantId": 0,
-  "platformId": 0,
-  "id": 0
+  "platformId": 0
 }
 ```
 
@@ -2426,15 +2415,15 @@ Returns product catalog with defined id.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Return product catalog|[ProductCatalog](#schemaproductcatalog)|
-|404|Not Found|Unable to find product catalog.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Return product catalog|[ProductCatalogEntity](#schemaproductcatalogentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find product catalog.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Remap tax categories.
+## POST/Remap tax categories.
 
 > Code samples
 
@@ -2447,7 +2436,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.post 'http://localhost:8004/catalogs/{catalogId}/map',
+result = RestClient.post '/api/v1.2/saletax/catalogs/{catalogId}/map',
   params: {
   }, headers: headers
 
@@ -2462,7 +2451,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.post('http://localhost:8004/catalogs/{catalogId}/map', headers = headers)
+r = requests.post('/api/v1.2/saletax/catalogs/{catalogId}/map', headers = headers)
 
 print(r.json())
 
@@ -2476,7 +2465,7 @@ Endpoint returns a link for checking process status.
 
 <h3 id="remap-tax-categories.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |catalogId|path|string|true|Catalog id.|
 
@@ -2496,15 +2485,15 @@ Endpoint returns a link for checking process status.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Returns a link which for checking process status.|[Link](#schemalink)|
-|404|Not Found|Unable to find catalog.|[Errors](#schemaerrors)|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns a link which for checking process status.|[Link](#schemalink)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find catalog.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Get product catalog processing status
+## GET/Get product catalog processing status
 
 > Code samples
 
@@ -2517,7 +2506,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/catalogs/{processId}/status',
+result = RestClient.get '/api/v1.2/saletax/catalogs/{processId}/status',
   params: {
   }, headers: headers
 
@@ -2532,7 +2521,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/catalogs/{processId}/status', headers = headers)
+r = requests.get('/api/v1.2/saletax/catalogs/{processId}/status', headers = headers)
 
 print(r.json())
 
@@ -2545,7 +2534,7 @@ The endpoint returns product catalog processing status.
 
 <h3 id="get-product-catalog-processing-status-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |processId|path|integer|true|Process id. |
 
@@ -2569,8 +2558,8 @@ The endpoint returns product catalog processing status.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns processing status.|[ProcessingStatus](#schemaprocessingstatus)|
-|404|Not Found|Unable to return processing status.
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns processing status.|[ProcessingStatus](#schemaprocessingstatus)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to return processing status.
 Invalid process identifier.|[Errors](#schemaerrors)|
 
 <aside class="warning">
@@ -2578,7 +2567,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 apiKeyAuth
 </aside>
 
-## Accept product catalog categorization.
+## POST/Accept product catalog categorization.
 
 > Code samples
 
@@ -2591,7 +2580,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.post 'http://localhost:8004/catalogs/{catalogId}/accept',
+result = RestClient.post '/api/v1.2/saletax/catalogs/{catalogId}/accept',
   params: {
   }, headers: headers
 
@@ -2606,7 +2595,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.post('http://localhost:8004/catalogs/{catalogId}/accept', headers = headers)
+r = requests.post('/api/v1.2/saletax/catalogs/{catalogId}/accept', headers = headers)
 
 print(r.json())
 
@@ -2618,7 +2607,7 @@ Accept product catalog categorization.
 
 <h3 id="accept-product-catalog-categorization.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |catalogId|path|integer|true|Catalog Id. |
 
@@ -2628,39 +2617,26 @@ Accept product catalog categorization.
 
 > Example responses
 
-> 404 Response
+> 201 Response
 
 ```json
-{
-  "errors": [
-    {
-      "code": 1234,
-      "message": "Illegal request parameter",
-      "details": [
-        "details string1",
-        "details string2"
-      ]
-    }
-  ]
-}
+{}
 ```
 
 <h3 id="accept-product-catalog-categorization.-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Customer is agree with tax categorization.|None|
-|404|Not Found|Invalid identifier, catalog not found
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Customer is agree with tax categorization.|[Object](#schemaobject)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Invalid identifier, catalog not found
 or processing is not finished.|[Errors](#schemaerrors)|
-
-<h3 id="accept-product-catalog-categorization.-responseschema">Response Schema</h3>
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Download product catalog.
+## POST/Download product catalog.
 
 > Code samples
 
@@ -2673,7 +2649,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.post 'http://localhost:8004/catalogs/{catalogId}/load',
+result = RestClient.post '/api/v1.2/saletax/catalogs/{catalogId}/load',
   params: {
   }, headers: headers
 
@@ -2688,7 +2664,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.post('http://localhost:8004/catalogs/{catalogId}/load', headers = headers)
+r = requests.post('/api/v1.2/saletax/catalogs/{catalogId}/load', headers = headers)
 
 print(r.json())
 
@@ -2701,7 +2677,7 @@ new/updated products only.
 
 <h3 id="download-product-catalog.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |catalogId|path|integer|true|Catalog Id.|
 
@@ -2717,8 +2693,7 @@ new/updated products only.
 {
   "name": "string",
   "merchantId": 0,
-  "platformId": 0,
-  "id": 0
+  "platformId": 0
 }
 ```
 
@@ -2726,9 +2701,9 @@ new/updated products only.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Returns a product catalog.|[ProductCatalog](#schemaproductcatalog)|
-|400|Bad Request|Unable to return catalogue.|[Errors](#schemaerrors)|
-|404|Not Found|Invalid product catalog identifier.|[Errors](#schemaerrors)|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns a product catalog.|[ProductCatalog](#schemaproductcatalog)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to return catalogue.|[Errors](#schemaerrors)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Invalid product catalog identifier.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -2737,7 +2712,7 @@ apiKeyAuth
 
 <h1 id="api-for-tax-calculator-product">Product</h1>
 
-## Lookup products from the defined catalog.
+## GET/Lookup products from the defined catalog.
 
 > Code samples
 
@@ -2750,7 +2725,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/catalogs/{catalogId}/products',
+result = RestClient.get '/api/v1.2/saletax/catalogs/{catalogId}/products',
   params: {
   }, headers: headers
 
@@ -2765,7 +2740,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/catalogs/{catalogId}/products', headers = headers)
+r = requests.get('/api/v1.2/saletax/catalogs/{catalogId}/products', headers = headers)
 
 print(r.json())
 
@@ -2785,7 +2760,7 @@ Filtering is avilable by
 
 <h3 id="lookup-products-from-the-defined-catalog.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |catalogId|path|integer|true|Catalog id.|
 |page|query|integer|false|Page number|
@@ -2832,10 +2807,6 @@ Filtering is avilable by
   },
   "products": [
     {
-      "masterId": "string",
-      "name": "string",
-      "shortDescription": "string",
-      "description": "string",
       "sku": [
         {
           "id": 566,
@@ -2860,13 +2831,6 @@ Filtering is avilable by
           ]
         }
       ],
-      "inActive": true,
-      "timestamp": "2019-12-12T13:19:09Z",
-      "mappingType": "autoMapped",
-      "effectivePeriod": {
-        "fromDate": "2019-12-12",
-        "toDate": "2019-12-12"
-      },
       "taxCategories": [
         {
           "id": 556,
@@ -2879,7 +2843,24 @@ Filtering is avilable by
       "categories": [
         "Videoserver"
       ],
-      "id": 0
+      "id": 0,
+      "salePoint": "string",
+      "masterId": "string",
+      "name": "string",
+      "image": {
+        "url": "https//stripe.com/images/img.png",
+        "width": 32,
+        "height": 32
+      },
+      "shortDescription": "string",
+      "description": "string",
+      "inActive": true,
+      "timestamp": "2010-10-11T21:44:22Z2",
+      "mappingType": "autoMapped",
+      "effectivePeriod": {
+        "fromDate": "2010-10-11",
+        "toDate": "2010-10-11"
+      }
     }
   ]
 }
@@ -2889,15 +2870,15 @@ Filtering is avilable by
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Returns collection of the products.|[Products](#schemaproducts)|
-|404|Not Found|Product catalog not found.|[Errors](#schemaerrors)|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns collection of the products.|[Products](#schemaproducts)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Product catalog not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Add product to the catalog.
+## POST/Add product to the catalog.
 
 > Code samples
 
@@ -2911,7 +2892,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.put 'http://localhost:8004/catalogs/{catalogId}/products',
+result = RestClient.post '/api/v1.2/saletax/catalogs/{catalogId}/products',
   params: {
   }, headers: headers
 
@@ -2927,15 +2908,15 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.put('http://localhost:8004/catalogs/{catalogId}/products', headers = headers)
+r = requests.post('/api/v1.2/saletax/catalogs/{catalogId}/products', headers = headers)
 
 print(r.json())
 
 ```
 
-`PUT /catalogs/{catalogId}/products`
+`POST /catalogs/{catalogId}/products`
 
-Adds product to the catalog. 
+Add product to the catalog. 
 
 > Body parameter
 
@@ -2943,11 +2924,15 @@ Adds product to the catalog.
 {
   "masterId": "string",
   "name": "string",
+  "image": {
+    "url": "https//stripe.com/images/img.png",
+    "width": 32,
+    "height": 32
+  },
   "shortDescription": "string",
   "description": "string",
   "sku": [
     {
-      "id": 566,
       "name": "Video Streaming Service",
       "description": "Video streaming service",
       "shortDescription": "Video streaming service",
@@ -2955,13 +2940,11 @@ Adds product to the catalog.
       "upc": "2323-234-343",
       "taxCategories": [
         {
-          "id": 556,
           "name": "software",
           "confidence": 90,
           "isSelected": "true"
         },
         {
-          "id": 557,
           "name": "hardware",
           "confidence": 80,
           "isSelected": "false"
@@ -2970,11 +2953,11 @@ Adds product to the catalog.
     }
   ],
   "inActive": true,
-  "timestamp": "2019-12-12T13:19:09Z",
+  "timestamp": "2010-10-11T21:44:22Z2",
   "mappingType": "autoMapped",
   "effectivePeriod": {
-    "fromDate": "2019-12-12",
-    "toDate": "2019-12-12"
+    "fromDate": "2010-10-11",
+    "toDate": "2010-10-11"
   },
   "taxCategories": [
     {
@@ -2987,17 +2970,16 @@ Adds product to the catalog.
   ],
   "categories": [
     "Videoserver"
-  ],
-  "id": 0
+  ]
 }
 ```
 
 <h3 id="add-product-to-the-catalog.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |catalogId|path|integer|true|Catalog Id. |
-|body|body|[Product](#schemaproduct)|false|Product definition.|
+|body|body|[Product](#schemaproduct)|true|Product definition.|
 
 #### Detailed descriptions
 
@@ -3011,10 +2993,6 @@ Adds product to the catalog.
 
 ```json
 {
-  "masterId": "string",
-  "name": "string",
-  "shortDescription": "string",
-  "description": "string",
   "sku": [
     {
       "id": 566,
@@ -3039,13 +3017,6 @@ Adds product to the catalog.
       ]
     }
   ],
-  "inActive": true,
-  "timestamp": "2019-12-12T13:19:09Z",
-  "mappingType": "autoMapped",
-  "effectivePeriod": {
-    "fromDate": "2019-12-12",
-    "toDate": "2019-12-12"
-  },
   "taxCategories": [
     {
       "id": 556,
@@ -3058,7 +3029,24 @@ Adds product to the catalog.
   "categories": [
     "Videoserver"
   ],
-  "id": 0
+  "id": 0,
+  "salePoint": "string",
+  "masterId": "string",
+  "name": "string",
+  "image": {
+    "url": "https//stripe.com/images/img.png",
+    "width": 32,
+    "height": 32
+  },
+  "shortDescription": "string",
+  "description": "string",
+  "inActive": true,
+  "timestamp": "2010-10-11T21:44:22Z2",
+  "mappingType": "autoMapped",
+  "effectivePeriod": {
+    "fromDate": "2010-10-11",
+    "toDate": "2010-10-11"
+  }
 }
 ```
 
@@ -3066,15 +3054,15 @@ Adds product to the catalog.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Product added successfully.|[Product](#schemaproduct)|
-|404|Not Found|Unable to add product to catalog.|[Errors](#schemaerrors)|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Product added successfully.|[ProductEntity](#schemaproductentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to add product to catalog.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Return the product from the catalog.
+## GET/Return the product from the catalog.
 
 > Code samples
 
@@ -3087,7 +3075,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/products/{productId}',
+result = RestClient.get '/api/v1.2/saletax/products/{productId}',
   params: {
   }, headers: headers
 
@@ -3102,7 +3090,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/products/{productId}', headers = headers)
+r = requests.get('/api/v1.2/saletax/products/{productId}', headers = headers)
 
 print(r.json())
 
@@ -3114,7 +3102,7 @@ Returns the productby product id.
 
 <h3 id="return-the-product-from-the-catalog.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |productId|path|integer|true|Product Id. |
 
@@ -3128,10 +3116,6 @@ Returns the productby product id.
 
 ```json
 {
-  "masterId": "string",
-  "name": "string",
-  "shortDescription": "string",
-  "description": "string",
   "sku": [
     {
       "id": 566,
@@ -3156,13 +3140,6 @@ Returns the productby product id.
       ]
     }
   ],
-  "inActive": true,
-  "timestamp": "2019-12-12T13:19:09Z",
-  "mappingType": "autoMapped",
-  "effectivePeriod": {
-    "fromDate": "2019-12-12",
-    "toDate": "2019-12-12"
-  },
   "taxCategories": [
     {
       "id": 556,
@@ -3175,7 +3152,24 @@ Returns the productby product id.
   "categories": [
     "Videoserver"
   ],
-  "id": 0
+  "id": 0,
+  "salePoint": "string",
+  "masterId": "string",
+  "name": "string",
+  "image": {
+    "url": "https//stripe.com/images/img.png",
+    "width": 32,
+    "height": 32
+  },
+  "shortDescription": "string",
+  "description": "string",
+  "inActive": true,
+  "timestamp": "2010-10-11T21:44:22Z2",
+  "mappingType": "autoMapped",
+  "effectivePeriod": {
+    "fromDate": "2010-10-11",
+    "toDate": "2010-10-11"
+  }
 }
 ```
 
@@ -3183,15 +3177,15 @@ Returns the productby product id.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Returns the product|[Product](#schemaproduct)|
-|404|Not Found|The product not found.|[Errors](#schemaerrors)|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns the product|[ProductEntity](#schemaproductentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|The product not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Update the product.
+## PATCH/Update the product.
 
 > Code samples
 
@@ -3200,11 +3194,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
+  'Content-Type' => 'application/json',
   'Accept' => 'application/json',
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.patch 'http://localhost:8004/products/{productId}',
+result = RestClient.patch '/api/v1.2/saletax/products/{productId}',
   params: {
   }, headers: headers
 
@@ -3215,11 +3210,12 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
+  'Content-Type': 'application/json',
   'Accept': 'application/json',
   'apikey': 'API_KEY'
 }
 
-r = requests.patch('http://localhost:8004/products/{productId}', headers = headers)
+r = requests.patch('/api/v1.2/saletax/products/{productId}', headers = headers)
 
 print(r.json())
 
@@ -3229,15 +3225,74 @@ print(r.json())
 
 Make same changes in the product.
 
+> Body parameter
+
+```json
+{
+  "masterId": "string",
+  "name": "string",
+  "image": {
+    "url": "https//stripe.com/images/img.png",
+    "width": 32,
+    "height": 32
+  },
+  "shortDescription": "string",
+  "description": "string",
+  "sku": [
+    {
+      "name": "Video Streaming Service",
+      "description": "Video streaming service",
+      "shortDescription": "Video streaming service",
+      "sku": "3423-23423",
+      "upc": "2323-234-343",
+      "taxCategories": [
+        {
+          "name": "software",
+          "confidence": 90,
+          "isSelected": "true"
+        },
+        {
+          "name": "hardware",
+          "confidence": 80,
+          "isSelected": "false"
+        }
+      ]
+    }
+  ],
+  "inActive": true,
+  "timestamp": "2010-10-11T21:44:22Z2",
+  "mappingType": "autoMapped",
+  "effectivePeriod": {
+    "fromDate": "2010-10-11",
+    "toDate": "2010-10-11"
+  },
+  "taxCategories": [
+    {
+      "id": 556,
+      "name": "sugar contains",
+      "confidence": 90,
+      "isManually": "true",
+      "isSelected": "true"
+    }
+  ],
+  "categories": [
+    "Videoserver"
+  ]
+}
+```
+
 <h3 id="update-the-product.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |productId|path|integer|true|Product id.|
+|body|body|[Product](#schemaproduct)|true|Product definition.|
 
 #### Detailed descriptions
 
 **productId**: Product id.
+
+**body**: Product definition.
 
 > Example responses
 
@@ -3245,10 +3300,6 @@ Make same changes in the product.
 
 ```json
 {
-  "masterId": "string",
-  "name": "string",
-  "shortDescription": "string",
-  "description": "string",
   "sku": [
     {
       "id": 566,
@@ -3273,13 +3324,6 @@ Make same changes in the product.
       ]
     }
   ],
-  "inActive": true,
-  "timestamp": "2019-12-12T13:19:09Z",
-  "mappingType": "autoMapped",
-  "effectivePeriod": {
-    "fromDate": "2019-12-12",
-    "toDate": "2019-12-12"
-  },
   "taxCategories": [
     {
       "id": 556,
@@ -3292,7 +3336,24 @@ Make same changes in the product.
   "categories": [
     "Videoserver"
   ],
-  "id": 0
+  "id": 0,
+  "salePoint": "string",
+  "masterId": "string",
+  "name": "string",
+  "image": {
+    "url": "https//stripe.com/images/img.png",
+    "width": 32,
+    "height": 32
+  },
+  "shortDescription": "string",
+  "description": "string",
+  "inActive": true,
+  "timestamp": "2010-10-11T21:44:22Z2",
+  "mappingType": "autoMapped",
+  "effectivePeriod": {
+    "fromDate": "2010-10-11",
+    "toDate": "2010-10-11"
+  }
 }
 ```
 
@@ -3300,9 +3361,9 @@ Make same changes in the product.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|204|No Content|The product updated successfully.|[Product](#schemaproduct)|
-|400|Bad Request|Unable to updateproduct.|[Errors](#schemaerrors)|
-|404|Not Found|The product not found.|[Errors](#schemaerrors)|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|The product updated successfully.|[ProductEntity](#schemaproductentity)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to updateproduct.|[Errors](#schemaerrors)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|The product not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -3311,7 +3372,7 @@ apiKeyAuth
 
 <h1 id="api-for-tax-calculator-logging">Logging</h1>
 
-## Return API call logs.
+## GET/Return tax calculation call logs.
 
 > Code samples
 
@@ -3324,7 +3385,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/logs',
+result = RestClient.get '/api/v1.2/saletax/logs',
   params: {
   }, headers: headers
 
@@ -3339,7 +3400,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/logs', headers = headers)
+r = requests.get('/api/v1.2/saletax/logs', headers = headers)
 
 print(r.json())
 
@@ -3347,22 +3408,17 @@ print(r.json())
 
 `GET /logs`
 
-Returns API call logs for current sale point.
+Returns tax calculation call logs 
+for current sale point.
 
-<h3 id="return-api-call-logs.-parameters">Parameters</h3>
+<h3 id="return-tax-calculation-call-logs.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
-|page|query|integer|false|Specified page number.|
-|size|query|integer|false|Specified number of the logs for single page.|
-|fromDate|query|[DateTime](#schemadatetime)|false|Specified period, from date. |
-|toDate|query|[DateTime](#schemadatetime)|false|Specified period, to date.|
+|fromDate|query|[Date](#schemadate)|false|Specified period, from date. |
+|toDate|query|[Date](#schemadate)|false|Specified period, to date.|
 
 #### Detailed descriptions
-
-**page**: Specified page number.
-
-**size**: Specified number of the logs for single page.
 
 **fromDate**: Specified period, from date. 
 
@@ -3376,29 +3432,21 @@ Returns API call logs for current sale point.
 {
   "logs": [
     {
-      "request": {
-        "url": "http://vertex.com/api/v1.2/transactions/123?page=1",
-        "uri": "api/v1.2/transactions/123",
-        "query": "page=1",
-        "method": "GET"
-      },
-      "response": {
-        "code": "200",
-        "content": "log trace"
-      },
-      "date": "2019-12-12T13:19:09Z",
-      "correlationId": "string"
+      "request": "http://192.168.0.17/api/v1.2/nextPage?size=12",
+      "response": "http://192.168.0.17/api/v1.2/nextPage?size=12",
+      "date": "2010-10-11",
+      "salePoint": "string"
     }
   ]
 }
 ```
 
-<h3 id="return-api-call-logs.-responses">Responses</h3>
+<h3 id="return-tax-calculation-call-logs.-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns logs|[Logs](#schemalogs)|
-|404|Not Found|Unable to get logs by defined criterias.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns logs|[Logs](#schemalogs)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find logs by defined criterias.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -3407,7 +3455,7 @@ apiKeyAuth
 
 <h1 id="api-for-tax-calculator-transaction-journal">Transaction Journal</h1>
 
-## Get transactions.
+## GET/Get transactions.
 
 > Code samples
 
@@ -3420,7 +3468,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/transactions',
+result = RestClient.get '/api/v1.2/saletax/transactions',
   params: {
   }, headers: headers
 
@@ -3435,7 +3483,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/transactions', headers = headers)
+r = requests.get('/api/v1.2/saletax/transactions', headers = headers)
 
 print(r.json())
 
@@ -3448,7 +3496,7 @@ Trnsactions can be selected by specified criteria.
 
 <h3 id="get-transactions.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |page|query|integer|false|Page number.|
 |size|query|integer|false|Number of the transactions for single page.|
@@ -3489,12 +3537,14 @@ Trnsactions can be selected by specified criteria.
   },
   "transactions": [
     {
+      "id": 0,
+      "salePoint": "string",
       "masterId": 0,
       "type": "new",
       "status": "preview",
       "order": {
         "masterId": 0,
-        "timestamp": "2019-12-12T13:19:09Z",
+        "timestamp": "2010-10-11T21:44:22Z2",
         "items": [
           {
             "id": 12,
@@ -3506,31 +3556,29 @@ Trnsactions can be selected by specified criteria.
           }
         ],
         "total": {
-          "total": "string",
-          "subTotal": "string",
-          "totalTax": "string",
+          "total": 153.55,
+          "subtotal": 148.35,
+          "totalTax": 7.2,
           "taxDetails": [
             {
-              "rates": [
-                {
-                  "id": 54,
-                  "description": "VAT",
-                  "name": "VAT",
-                  "taxLevel": "jurisdiction",
-                  "rules": [
-                    "s56",
-                    "s55"
-                  ],
-                  "percentage": 7
-                }
-              ],
-              "amount": "string"
+              "rate": {
+                "id": 54,
+                "description": "VAT",
+                "name": "VAT",
+                "taxLevel": "jurisdiction",
+                "rules": [
+                  "s56",
+                  "s55"
+                ],
+                "percentage": 7
+              },
+              "amount": 7.2
             }
           ]
         },
-        "id": 0
-      },
-      "id": 0
+        "id": 0,
+        "salePoint": "string"
+      }
     }
   ]
 }
@@ -3540,15 +3588,15 @@ Trnsactions can be selected by specified criteria.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns transactions|[Transactions](#schematransactions)|
-|404|Not Found|Unable to get transactions with defined criterias.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns transactions|[Transactions](#schematransactions)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to get transactions with defined criterias.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Get Transaction Summary.
+## GET/Get Transaction Summary.
 
 > Code samples
 
@@ -3561,7 +3609,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/transactions/summary',
+result = RestClient.get '/api/v1.2/saletax/transactions/summary',
   params: {
   }, headers: headers
 
@@ -3576,7 +3624,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/transactions/summary', headers = headers)
+r = requests.get('/api/v1.2/saletax/transactions/summary', headers = headers)
 
 print(r.json())
 
@@ -3589,7 +3637,7 @@ sale point which are selected by defined criterias.
 
 <h3 id="get-transaction-summary.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |states|query|string|false|List of the states. |
 |fromDate|query|[DateTime](#schemadatetime)|false|Specified period of time. From date.|
@@ -3620,15 +3668,15 @@ Comma is used as a delimiter.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns transaction summary|[TransactionSummary](#schematransactionsummary)|
-|404|Not Found|Unable to get transaction summary.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns transaction summary|[TransactionSummary](#schematransactionsummary)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to get transaction summary.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Download journal in CVS.
+## GET/Download journal in CVS.
 
 > Code samples
 
@@ -3641,7 +3689,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/transactions/cvs',
+result = RestClient.get '/api/v1.2/saletax/transactions/cvs',
   params: {
   }, headers: headers
 
@@ -3656,7 +3704,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/transactions/cvs', headers = headers)
+r = requests.get('/api/v1.2/saletax/transactions/cvs', headers = headers)
 
 print(r.json())
 
@@ -3668,7 +3716,7 @@ This endpoint is used by customers if they want to download transaction journal 
 
 <h3 id="download-journal-in-cvs.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |states|query|string|false|List of the states with comma delimiter.|
 |fromDate|query|[DateTime](#schemadatetime)|false|Specified period of time. From date.|
@@ -3684,31 +3732,18 @@ This endpoint is used by customers if they want to download transaction journal 
 
 > Example responses
 
-> 404 Response
+> 200 Response
 
 ```json
-{
-  "errors": [
-    {
-      "code": 1234,
-      "message": "Illegal request parameter",
-      "details": [
-        "details string1",
-        "details string2"
-      ]
-    }
-  ]
-}
+{}
 ```
 
 <h3 id="download-journal-in-cvs.-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns journal in CVS format.|None|
-|404|Not Found|Unable to create transaction journal.|[Errors](#schemaerrors)|
-
-<h3 id="download-journal-in-cvs.-responseschema">Response Schema</h3>
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns journal in CVS format.|[Object](#schemaobject)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to create transaction journal.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -3717,7 +3752,7 @@ apiKeyAuth
 
 <h1 id="api-for-tax-calculator-transaction-management">Transaction Management</h1>
 
-## Consume transaction.
+## POST/Consume transaction.
 
 > Code samples
 
@@ -3731,7 +3766,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.post 'http://localhost:8004/transactions',
+result = RestClient.post '/api/v1.2/saletax/transactions',
   params: {
   }, headers: headers
 
@@ -3747,7 +3782,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.post('http://localhost:8004/transactions', headers = headers)
+r = requests.post('/api/v1.2/saletax/transactions', headers = headers)
 
 print(r.json())
 
@@ -3770,7 +3805,7 @@ Total includes collection taxes.
   "status": "preview",
   "order": {
     "masterId": 0,
-    "timestamp": "2019-12-12T13:19:09Z",
+    "timestamp": "2010-10-11T21:44:22Z2",
     "items": [
       {
         "id": 12,
@@ -3782,37 +3817,37 @@ Total includes collection taxes.
       }
     ],
     "total": {
-      "total": "string",
-      "subTotal": "string",
-      "totalTax": "string",
+      "total": 153.55,
+      "subtotal": 148.35,
+      "totalTax": 7.2,
       "taxDetails": [
         {
-          "rates": [
-            {
-              "id": 54,
-              "description": "VAT",
-              "name": "VAT",
-              "taxLevel": "jurisdiction",
-              "rules": [
-                "s56",
-                "s55"
-              ],
-              "percentage": 7
-            }
-          ],
-          "amount": "string"
+          "rate": {
+            "id": 54,
+            "description": "VAT",
+            "name": "VAT",
+            "taxLevel": "jurisdiction",
+            "rules": [
+              "s56",
+              "s55"
+            ],
+            "percentage": 7
+          },
+          "amount": 7.2
         }
       ]
     },
-    "id": 0
+    "id": 0,
+    "salePoint": "string"
   },
-  "id": 0
+  "id": 0,
+  "salePoint": "string"
 }
 ```
 
 <h3 id="consume-transaction.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |body|body|[Transaction](#schematransaction)|true|none|
 
@@ -3827,7 +3862,7 @@ Total includes collection taxes.
   "status": "preview",
   "order": {
     "masterId": 0,
-    "timestamp": "2019-12-12T13:19:09Z",
+    "timestamp": "2010-10-11T21:44:22Z2",
     "items": [
       {
         "id": 12,
@@ -3839,31 +3874,31 @@ Total includes collection taxes.
       }
     ],
     "total": {
-      "total": "string",
-      "subTotal": "string",
-      "totalTax": "string",
+      "total": 153.55,
+      "subtotal": 148.35,
+      "totalTax": 7.2,
       "taxDetails": [
         {
-          "rates": [
-            {
-              "id": 54,
-              "description": "VAT",
-              "name": "VAT",
-              "taxLevel": "jurisdiction",
-              "rules": [
-                "s56",
-                "s55"
-              ],
-              "percentage": 7
-            }
-          ],
-          "amount": "string"
+          "rate": {
+            "id": 54,
+            "description": "VAT",
+            "name": "VAT",
+            "taxLevel": "jurisdiction",
+            "rules": [
+              "s56",
+              "s55"
+            ],
+            "percentage": 7
+          },
+          "amount": 7.2
         }
       ]
     },
-    "id": 0
+    "id": 0,
+    "salePoint": "string"
   },
-  "id": 0
+  "id": 0,
+  "salePoint": "string"
 }
 ```
 
@@ -3871,9 +3906,9 @@ Total includes collection taxes.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|Created|Returns transaction with total.|[Transaction](#schematransaction)|
-|400|Bad Request|Unable to add transaction.|[Errors](#schemaerrors)|
-|409|Conflict|Unable to add transaction.
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns transaction with total.|[Transaction](#schematransaction)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to add transaction.|[Errors](#schemaerrors)|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Unable to add transaction.
 Transactions already registered.|[Errors](#schemaerrors)|
 
 <aside class="warning">
@@ -3881,7 +3916,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 apiKeyAuth
 </aside>
 
-## Get transaction.
+## GET/Get transaction.
 
 > Code samples
 
@@ -3894,7 +3929,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.get 'http://localhost:8004/transactions/{transactionId}',
+result = RestClient.get '/api/v1.2/saletax/transactions/{transactionId}',
   params: {
   }, headers: headers
 
@@ -3909,7 +3944,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.get('http://localhost:8004/transactions/{transactionId}', headers = headers)
+r = requests.get('/api/v1.2/saletax/transactions/{transactionId}', headers = headers)
 
 print(r.json())
 
@@ -3921,7 +3956,7 @@ Get transaction from the tax journal.
 
 <h3 id="get-transaction.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |transactionId|path|string|true|Transaction id.|
 
@@ -3935,12 +3970,14 @@ Get transaction from the tax journal.
 
 ```json
 {
+  "id": 0,
+  "salePoint": "string",
   "masterId": 0,
   "type": "new",
   "status": "preview",
   "order": {
     "masterId": 0,
-    "timestamp": "2019-12-12T13:19:09Z",
+    "timestamp": "2010-10-11T21:44:22Z2",
     "items": [
       {
         "id": 12,
@@ -3952,31 +3989,29 @@ Get transaction from the tax journal.
       }
     ],
     "total": {
-      "total": "string",
-      "subTotal": "string",
-      "totalTax": "string",
+      "total": 153.55,
+      "subtotal": 148.35,
+      "totalTax": 7.2,
       "taxDetails": [
         {
-          "rates": [
-            {
-              "id": 54,
-              "description": "VAT",
-              "name": "VAT",
-              "taxLevel": "jurisdiction",
-              "rules": [
-                "s56",
-                "s55"
-              ],
-              "percentage": 7
-            }
-          ],
-          "amount": "string"
+          "rate": {
+            "id": 54,
+            "description": "VAT",
+            "name": "VAT",
+            "taxLevel": "jurisdiction",
+            "rules": [
+              "s56",
+              "s55"
+            ],
+            "percentage": 7
+          },
+          "amount": 7.2
         }
       ]
     },
-    "id": 0
-  },
-  "id": 0
+    "id": 0,
+    "salePoint": "string"
+  }
 }
 ```
 
@@ -3984,15 +4019,15 @@ Get transaction from the tax journal.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Returns a transaction.|[Transaction](#schematransaction)|
-|404|Not Found|Transaction with specified id not found.|[Errors](#schemaerrors)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns a transaction.|[TransactionEntity](#schematransactionentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Transaction with specified id not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKeyAuth
 </aside>
 
-## Delete transaction.
+## DELETE/Delete transaction.
 
 > Code samples
 
@@ -4005,7 +4040,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.delete 'http://localhost:8004/transactions/{transactionId}',
+result = RestClient.delete '/api/v1.2/saletax/transactions/{transactionId}',
   params: {
   }, headers: headers
 
@@ -4020,7 +4055,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.delete('http://localhost:8004/transactions/{transactionId}', headers = headers)
+r = requests.delete('/api/v1.2/saletax/transactions/{transactionId}', headers = headers)
 
 print(r.json())
 
@@ -4034,7 +4069,7 @@ Soft delete.
 
 <h3 id="delete-transaction.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |transactionId|path|string|true|Transaction id.|
 
@@ -4048,12 +4083,14 @@ Soft delete.
 
 ```json
 {
+  "id": 0,
+  "salePoint": "string",
   "masterId": 0,
   "type": "new",
   "status": "preview",
   "order": {
     "masterId": 0,
-    "timestamp": "2019-12-12T13:19:09Z",
+    "timestamp": "2010-10-11T21:44:22Z2",
     "items": [
       {
         "id": 12,
@@ -4065,31 +4102,29 @@ Soft delete.
       }
     ],
     "total": {
-      "total": "string",
-      "subTotal": "string",
-      "totalTax": "string",
+      "total": 153.55,
+      "subtotal": 148.35,
+      "totalTax": 7.2,
       "taxDetails": [
         {
-          "rates": [
-            {
-              "id": 54,
-              "description": "VAT",
-              "name": "VAT",
-              "taxLevel": "jurisdiction",
-              "rules": [
-                "s56",
-                "s55"
-              ],
-              "percentage": 7
-            }
-          ],
-          "amount": "string"
+          "rate": {
+            "id": 54,
+            "description": "VAT",
+            "name": "VAT",
+            "taxLevel": "jurisdiction",
+            "rules": [
+              "s56",
+              "s55"
+            ],
+            "percentage": 7
+          },
+          "amount": 7.2
         }
       ]
     },
-    "id": 0
-  },
-  "id": 0
+    "id": 0,
+    "salePoint": "string"
+  }
 }
 ```
 
@@ -4097,8 +4132,8 @@ Soft delete.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|OK|Transaction deleted successfully.|[Transaction](#schematransaction)|
-|404|Not Found|Unable to delete transaction.
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transaction deleted successfully.|[TransactionEntity](#schematransactionentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to delete transaction.
 Transaction with specified id not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
@@ -4106,7 +4141,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 apiKeyAuth
 </aside>
 
-## Update specified transaction.
+## PATCH/Update specified transaction.
 
 > Code samples
 
@@ -4120,7 +4155,7 @@ headers = {
   'apikey' => 'API_KEY'
 }
 
-result = RestClient.patch 'http://localhost:8004/transactions/{transactionId}',
+result = RestClient.patch '/api/v1.2/saletax/transactions/{transactionId}',
   params: {
   }, headers: headers
 
@@ -4136,7 +4171,7 @@ headers = {
   'apikey': 'API_KEY'
 }
 
-r = requests.patch('http://localhost:8004/transactions/{transactionId}', headers = headers)
+r = requests.patch('/api/v1.2/saletax/transactions/{transactionId}', headers = headers)
 
 print(r.json())
 
@@ -4156,7 +4191,7 @@ Safe operation.
   "status": "preview",
   "order": {
     "masterId": 0,
-    "timestamp": "2019-12-12T13:19:09Z",
+    "timestamp": "2010-10-11T21:44:22Z2",
     "items": [
       {
         "id": 12,
@@ -4168,37 +4203,37 @@ Safe operation.
       }
     ],
     "total": {
-      "total": "string",
-      "subTotal": "string",
-      "totalTax": "string",
+      "total": 153.55,
+      "subtotal": 148.35,
+      "totalTax": 7.2,
       "taxDetails": [
         {
-          "rates": [
-            {
-              "id": 54,
-              "description": "VAT",
-              "name": "VAT",
-              "taxLevel": "jurisdiction",
-              "rules": [
-                "s56",
-                "s55"
-              ],
-              "percentage": 7
-            }
-          ],
-          "amount": "string"
+          "rate": {
+            "id": 54,
+            "description": "VAT",
+            "name": "VAT",
+            "taxLevel": "jurisdiction",
+            "rules": [
+              "s56",
+              "s55"
+            ],
+            "percentage": 7
+          },
+          "amount": 7.2
         }
       ]
     },
-    "id": 0
+    "id": 0,
+    "salePoint": "string"
   },
-  "id": 0
+  "id": 0,
+  "salePoint": "string"
 }
 ```
 
 <h3 id="update-specified-transaction.-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
+|Name|In|Type|Required|Description3|
 |---|---|---|---|---|
 |transactionId|path|string|true|Specified transaction id.|
 |body|body|[Transaction](#schematransaction)|true|none|
@@ -4213,12 +4248,14 @@ Safe operation.
 
 ```json
 {
+  "id": 0,
+  "salePoint": "string",
   "masterId": 0,
   "type": "new",
   "status": "preview",
   "order": {
     "masterId": 0,
-    "timestamp": "2019-12-12T13:19:09Z",
+    "timestamp": "2010-10-11T21:44:22Z2",
     "items": [
       {
         "id": 12,
@@ -4230,31 +4267,29 @@ Safe operation.
       }
     ],
     "total": {
-      "total": "string",
-      "subTotal": "string",
-      "totalTax": "string",
+      "total": 153.55,
+      "subtotal": 148.35,
+      "totalTax": 7.2,
       "taxDetails": [
         {
-          "rates": [
-            {
-              "id": 54,
-              "description": "VAT",
-              "name": "VAT",
-              "taxLevel": "jurisdiction",
-              "rules": [
-                "s56",
-                "s55"
-              ],
-              "percentage": 7
-            }
-          ],
-          "amount": "string"
+          "rate": {
+            "id": 54,
+            "description": "VAT",
+            "name": "VAT",
+            "taxLevel": "jurisdiction",
+            "rules": [
+              "s56",
+              "s55"
+            ],
+            "percentage": 7
+          },
+          "amount": 7.2
         }
       ]
     },
-    "id": 0
-  },
-  "id": 0
+    "id": 0,
+    "salePoint": "string"
+  }
 }
 ```
 
@@ -4262,8 +4297,8 @@ Safe operation.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|204|No Content|Transaction updated successfully.|[Transaction](#schematransaction)|
-|404|Not Found|Unable to update transaction. 
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Transaction updated successfully.|[TransactionEntity](#schematransactionentity)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to update transaction. 
 Transaction with specified id not found.|[Errors](#schemaerrors)|
 
 <aside class="warning">
@@ -4272,6 +4307,24 @@ apiKeyAuth
 </aside>
 
 # Schemas
+
+<h2 id="tocS_Object">Object</h2>
+<!-- backwards compatibility -->
+<a id="schemaobject"></a>
+<a id="schema_Object"></a>
+<a id="tocSobject"></a>
+<a id="tocsobject"></a>
+
+```json
+{}
+
+```
+
+Object
+
+### Properties
+
+*None*
 
 <h2 id="tocS_Link">Link</h2>
 <!-- backwards compatibility -->
@@ -4317,11 +4370,11 @@ Pagination
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|self|[Link](#schemalink)|false|none|Absolute URI. <br>Used for implementing UI on hypermedia way.|
-|prev|[Link](#schemalink)|false|none|Absolute URI. <br>Used for implementing UI on hypermedia way.|
-|next|[Link](#schemalink)|false|none|Absolute URI. <br>Used for implementing UI on hypermedia way.|
-|first|[Link](#schemalink)|false|none|Absolute URI. <br>Used for implementing UI on hypermedia way.|
-|last|[Link](#schemalink)|false|none|Absolute URI. <br>Used for implementing UI on hypermedia way.|
+|self|[Link](#schemalink)|false|none|Absolute URI.|
+|prev|[Link](#schemalink)|false|none|Absolute URI.|
+|next|[Link](#schemalink)|false|none|Absolute URI.|
+|first|[Link](#schemalink)|false|none|Absolute URI.|
+|last|[Link](#schemalink)|false|none|Absolute URI.|
 
 <h2 id="tocS_FetchInfo">FetchInfo</h2>
 <!-- backwards compatibility -->
@@ -4360,7 +4413,8 @@ Fetch info
 
 ```json
 {
-  "id": 0
+  "id": 0,
+  "salePoint": "string"
 }
 
 ```
@@ -4372,6 +4426,7 @@ Entity
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |id|integer|false|none|Entity identifier.|
+|salePoint|string|false|none|Sale point identifier, email.|
 
 <h2 id="tocS_Error">Error</h2>
 <!-- backwards compatibility -->
@@ -4383,10 +4438,13 @@ Entity
 ```json
 {
   "code": 1234,
+  "traceId": "mm08-9033-9938-90gf",
+  "uId": "54544",
+  "timeStamp": "2010-10-11T21:44:22Z2",
   "message": "Illegal request parameter",
   "details": [
-    "details string1",
-    "details string2"
+    "Please use correct company identifier",
+    "and try again."
   ]
 }
 
@@ -4398,8 +4456,11 @@ Error
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|code|integer|false|none|Error code|
-|message|string|false|none|Error message|
+|code|integer|false|none|Error code.|
+|uId|string|false|none|Unique identifier that helps to find an error.|
+|correlationId|string|false|none|Unique identifier that helps to trace an error.|
+|timeStamp|[DateTime](#schemadatetime)|false|none|Date-time in format [ISO-8601], YYYY-MM-DDThh:mm:ssTZD|
+|message|string|false|none|Error message.|
 |details|[string]|false|none|none|
 
 <h2 id="tocS_Errors">Errors</h2>
@@ -4414,10 +4475,13 @@ Error
   "errors": [
     {
       "code": 1234,
+      "traceId": "mm08-9033-9938-90gf",
+      "uId": "54544",
+      "timeStamp": "2010-10-11T21:44:22Z2",
       "message": "Illegal request parameter",
       "details": [
-        "details string1",
-        "details string2"
+        "Please use correct company identifier",
+        "and try again."
       ]
     }
   ]
@@ -4431,7 +4495,7 @@ Errors
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|errors|[[Error](#schemaerror)]|false|none|[Error message<br>]|
+|errors|[[Error](#schemaerror)]|false|none|[Error datails which helps understand the error root.  <br>]|
 
 <h2 id="tocS_Amount">Amount</h2>
 <!-- backwards compatibility -->
@@ -4461,7 +4525,7 @@ Amount
 <a id="tocsdate"></a>
 
 ```json
-"2019-12-12"
+"2010-10-11"
 
 ```
 
@@ -4481,7 +4545,7 @@ Date
 <a id="tocsdatetime"></a>
 
 ```json
-"2019-12-12T13:19:09Z"
+"2010-10-11T21:44:22Z2"
 
 ```
 
@@ -4501,7 +4565,7 @@ Date-time
 <a id="tocsemail"></a>
 
 ```json
-"string"
+"code@vertex.com"
 
 ```
 
@@ -4521,7 +4585,7 @@ Email address
 <a id="tocsphone"></a>
 
 ```json
-"string"
+"444-333-888"
 
 ```
 
@@ -4542,8 +4606,8 @@ Phone number
 
 ```json
 {
-  "fromDate": "2019-12-12",
-  "toDate": "2019-12-12"
+  "fromDate": "2010-10-11",
+  "toDate": "2010-10-11"
 }
 
 ```
@@ -4580,7 +4644,7 @@ Processing status
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |id|integer|false|none|Identifier|
-|link|[Link](#schemalink)|false|none|Absolute URI. <br>Used for implementing UI on hypermedia way.|
+|link|[Link](#schemalink)|false|none|Absolute URI.|
 |status|string|false|none|none|
 
 #### Enumerated Values
@@ -4622,6 +4686,48 @@ Email message
 |subject|string|true|none|Message subject.|
 |parameters|[[Parameter](#schemaparameter)]|false|none|[Definition of the notification parameter. <br>Notification service uses parameters to fulfil <br>defined template by values.<br>]|
 
+<h2 id="tocS_MessageEntity">MessageEntity</h2>
+<!-- backwards compatibility -->
+<a id="schemamessageentity"></a>
+<a id="schema_MessageEntity"></a>
+<a id="tocSmessageentity"></a>
+<a id="tocsmessageentity"></a>
+
+```json
+{
+  "id": 624,
+  "email": "user@vertex.com",
+  "subject": "Account confirmation",
+  "parameters": [
+    {
+      "name": "name",
+      "value": "value"
+    }
+  ]
+}
+
+```
+
+Email message entity
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|Email message entity|any|false|none|none|
+
+allOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Entity](#schemaentity)|false|none|none|
+
+and
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Message](#schemamessage)|false|none|none|
+
 <h2 id="tocS_Template">Template</h2>
 <!-- backwards compatibility -->
 <a id="schematemplate"></a>
@@ -4631,7 +4737,6 @@ Email message
 
 ```json
 {
-  "id": 624,
   "name": "email",
   "body": " Dear {name}, Your account is activated."
 }
@@ -4644,9 +4749,44 @@ Template
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|Template|[Entity](#schemaentity)|false|none|Definition of the notification template.|
-|name|string|false|none|Unique template name.|
-|body|string|false|none|Template body which should be HTML with data fileds placeholders.|
+|name|string|true|none|Unique template name.|
+|body|string|true|none|Template body which should be HTML <br>with data fileds placeholders.|
+
+<h2 id="tocS_TemplateEntity">TemplateEntity</h2>
+<!-- backwards compatibility -->
+<a id="schematemplateentity"></a>
+<a id="schema_TemplateEntity"></a>
+<a id="tocStemplateentity"></a>
+<a id="tocstemplateentity"></a>
+
+```json
+{
+  "id": 624,
+  "name": "email",
+  "body": " Dear {name}, Your account is activated."
+}
+
+```
+
+Template entity
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|Template entity|any|false|none|none|
+
+allOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Entity](#schemaentity)|false|none|none|
+
+and
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Template](#schematemplate)|false|none|none|
 
 <h2 id="tocS_Templates">Templates</h2>
 <!-- backwards compatibility -->
@@ -4674,7 +4814,7 @@ Template collection
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|templates|[[Template](#schematemplate)]|false|none|[Definition of the notification template.<br>]|
+|templates|[[TemplateEntity](#schematemplateentity)]|false|none|none|
 
 <h2 id="tocS_Parameter">Parameter</h2>
 <!-- backwards compatibility -->
@@ -4736,7 +4876,6 @@ Location Type
 
 ```json
 {
-  "id": 653,
   "type": "administrative",
   "city": "KNG OF PRUSSA",
   "state": "PA",
@@ -4753,7 +4892,6 @@ Location
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|Location|[Entity](#schemaentity)|false|none|none|
 |type|[LocationType](#schemalocationtype)|true|none|An enumeration that represents available Location Types.<br>| value          | description                              |<br>|----------------|------------------------------------------|<br>| administrative | It means store regisgtration place       |<br>| phisical       | Store phosical prenets                   ||
 |city|string|true|none|none|
 |state|[State](#schemastate)|true|none|State in format [ISO 3166-2]|
@@ -4761,6 +4899,46 @@ Location
 |zipExt|string|false|none|none|
 |addressLine1|string|false|none|none|
 |addressLine2|string|false|none|none|
+
+<h2 id="tocS_LocationEntity">LocationEntity</h2>
+<!-- backwards compatibility -->
+<a id="schemalocationentity"></a>
+<a id="schema_LocationEntity"></a>
+<a id="tocSlocationentity"></a>
+<a id="tocslocationentity"></a>
+
+```json
+{
+  "id": 653,
+  "type": "administrative",
+  "city": "KNG OF PRUSSA",
+  "state": "PA",
+  "zip": "19406",
+  "zipExt": "1101",
+  "addressLine1": "875 MANCILL MILL RD"
+}
+
+```
+
+Location Entity
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|Location Entity|any|false|none|none|
+
+allOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Entity](#schemaentity)|false|none|none|
+
+and
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Location](#schemalocation)|false|none|none|
 
 <h2 id="tocS_Locations">Locations</h2>
 <!-- backwards compatibility -->
@@ -4792,7 +4970,7 @@ Location collection
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|locations|[[Location](#schemalocation)]|false|none|none|
+|locations|[[LocationEntity](#schemalocationentity)]|false|none|none|
 
 <h2 id="tocS_Contact">Contact</h2>
 <!-- backwards compatibility -->
@@ -4811,16 +4989,53 @@ Location collection
 
 ```
 
-Contact person
+Contact
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|Contact person|[Entity](#schemaentity)|false|none|none|
+|Contact|[Entity](#schemaentity)|false|none|none|
 |title|string|true|none|Contact title.|
 |name|string|true|none|Contact name.|
 |lastName|string|true|none|Contact last name.|
+
+<h2 id="tocS_ContactEntity">ContactEntity</h2>
+<!-- backwards compatibility -->
+<a id="schemacontactentity"></a>
+<a id="schema_ContactEntity"></a>
+<a id="tocScontactentity"></a>
+<a id="tocscontactentity"></a>
+
+```json
+{
+  "id": 464,
+  "title": "Mr",
+  "name": "Oleksiy",
+  "lastName": "Luchkovskiy"
+}
+
+```
+
+Contact Entity
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|Contact Entity|any|false|none|none|
+
+allOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Entity](#schemaentity)|false|none|none|
+
+and
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Contact](#schemacontact)|false|none|none|
 
 <h2 id="tocS_ContactInfo">ContactInfo</h2>
 <!-- backwards compatibility -->
@@ -4832,7 +5047,6 @@ Contact person
 ```json
 {
   "location": {
-    "id": 653,
     "type": "administrative",
     "city": "KNG OF PRUSSA",
     "state": "PA",
@@ -4841,10 +5055,10 @@ Contact person
     "addressLine1": "875 MANCILL MILL RD"
   },
   "emails": [
-    "string"
+    "code@vertex.com"
   ],
   "phones": [
-    "string"
+    "444-333-888"
   ],
   "id": 464,
   "title": "Mr",
@@ -4862,6 +5076,49 @@ Contact information
 |---|---|---|---|---|
 |Contact information|[Contact](#schemacontact)|false|none|none|
 |location|[Location](#schemalocation)|false|none|none|
+|emails|[[Email](#schemaemail)]|false|none|none|
+|phones|[[Phone](#schemaphone)]|false|none|none|
+
+<h2 id="tocS_ContactInfoEntity">ContactInfoEntity</h2>
+<!-- backwards compatibility -->
+<a id="schemacontactinfoentity"></a>
+<a id="schema_ContactInfoEntity"></a>
+<a id="tocScontactinfoentity"></a>
+<a id="tocscontactinfoentity"></a>
+
+```json
+{
+  "location": {
+    "id": 653,
+    "type": "administrative",
+    "city": "KNG OF PRUSSA",
+    "state": "PA",
+    "zip": "19406",
+    "zipExt": "1101",
+    "addressLine1": "875 MANCILL MILL RD"
+  },
+  "emails": [
+    "code@vertex.com"
+  ],
+  "phones": [
+    "444-333-888"
+  ],
+  "id": 464,
+  "title": "Mr",
+  "name": "Oleksiy",
+  "lastName": "Luchkovskiy"
+}
+
+```
+
+Contact information Entity
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|Contact information Entity|[ContactEntity](#schemacontactentity)|false|none|none|
+|location|[LocationEntity](#schemalocationentity)|false|none|none|
 |emails|[[Email](#schemaemail)]|false|none|none|
 |phones|[[Phone](#schemaphone)]|false|none|none|
 
@@ -4894,7 +5151,6 @@ State
 
 ```json
 {
-  "id": 656,
   "name": "Cofe shop",
   "email": "shop@vertex.com",
   "password": "password"
@@ -4908,10 +5164,35 @@ Account
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|Account|[Entity](#schemaentity)|false|none|none|
-|name|string|false|none|Account name.|
+|name|string|true|none|Account name.|
 |email|[Email](#schemaemail)|true|none|none|
 |password|string(password)|true|none|Account password.|
+
+<h2 id="tocS_AccountEntity">AccountEntity</h2>
+<!-- backwards compatibility -->
+<a id="schemaaccountentity"></a>
+<a id="schema_AccountEntity"></a>
+<a id="tocSaccountentity"></a>
+<a id="tocsaccountentity"></a>
+
+```json
+{
+  "id": 656,
+  "name": "Cofe shop",
+  "email": "shop@vertex.com"
+}
+
+```
+
+Account Entity
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|Account Entity|[Entity](#schemaentity)|false|none|none|
+|name|string|true|none|Account name.|
+|email|[Email](#schemaemail)|true|none|none|
 
 <h2 id="tocS_AccountInfo">AccountInfo</h2>
 <!-- backwards compatibility -->
@@ -4925,8 +5206,7 @@ Account
   "account": {
     "id": 656,
     "name": "Cofe shop",
-    "email": "shop@vertex.com",
-    "password": "password"
+    "email": "shop@vertex.com"
   },
   "businessInfo": {
     "id": 234,
@@ -4956,8 +5236,8 @@ Account Info
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|account|[Account](#schemaaccount)|false|none|none|
-|businessInfo|[BusinessInfo](#schemabusinessinfo)|false|none|Account business information. <br>This information includes business name and tax identifier.|
+|account|[AccountEntity](#schemaaccountentity)|false|none|none|
+|businessInfo|[BusinessInfoEntity](#schemabusinessinfoentity)|false|none|Account business information. <br>This information includes business name and tax identifier.|
 |locations|[Locations](#schemalocations)|false|none|none|
 
 <h2 id="tocS_TokenType">TokenType</h2>
@@ -5067,7 +5347,6 @@ Token collection
 
 ```json
 {
-  "id": 234,
   "businessName": "Cofe shop LTD",
   "fedTaxId": "2321-2323-2132"
 }
@@ -5080,9 +5359,44 @@ Business information
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|Business information|[Entity](#schemaentity)|false|none|Account business information. <br>This information includes business name and tax identifier.|
 |businessName|string|true|none|Business name.|
 |fedTaxId|string|true|none|Federal tax identifier.|
+
+<h2 id="tocS_BusinessInfoEntity">BusinessInfoEntity</h2>
+<!-- backwards compatibility -->
+<a id="schemabusinessinfoentity"></a>
+<a id="schema_BusinessInfoEntity"></a>
+<a id="tocSbusinessinfoentity"></a>
+<a id="tocsbusinessinfoentity"></a>
+
+```json
+{
+  "id": 234,
+  "businessName": "Cofe shop LTD",
+  "fedTaxId": "2321-2323-2132"
+}
+
+```
+
+Business information entity
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|Business information entity|any|false|none|Account business information. <br>This information includes business name and tax identifier.|
+
+allOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Entity](#schemaentity)|false|none|none|
+
+and
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[BusinessInfo](#schemabusinessinfo)|false|none|Account business information. <br>This information includes business name and tax identifier.|
 
 <h2 id="tocS_TaxCategory">TaxCategory</h2>
 <!-- backwards compatibility -->
@@ -5093,7 +5407,6 @@ Business information
 
 ```json
 {
-  "id": 556,
   "name": "sugar contains",
   "confidence": 90,
   "isManually": "true",
@@ -5108,11 +5421,48 @@ Tax Category
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|Tax Category|[Entity](#schemaentity)|false|none|none|
 |name|string|false|none|Tax category name.|
 |confidence|integer|false|none|Prediction categorization confidence.|
 |isManualy|boolean|false|none|Flag indicates that the tax category is defined manually.|
 |isSelected|boolean|false|none|Flag indicates that the tax category is selected.|
+
+<h2 id="tocS_TaxCategoryEntity">TaxCategoryEntity</h2>
+<!-- backwards compatibility -->
+<a id="schemataxcategoryentity"></a>
+<a id="schema_TaxCategoryEntity"></a>
+<a id="tocStaxcategoryentity"></a>
+<a id="tocstaxcategoryentity"></a>
+
+```json
+{
+  "id": 556,
+  "name": "sugar contains",
+  "confidence": 90,
+  "isManually": "true",
+  "isSelected": "true"
+}
+
+```
+
+Tax Category Entity
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|Tax Category Entity|any|false|none|none|
+
+allOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Entity](#schemaentity)|false|none|none|
+
+and
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[TaxCategory](#schemataxcategory)|false|none|none|
 
 <h2 id="tocS_TaxCategories">TaxCategories</h2>
 <!-- backwards compatibility -->
@@ -5140,7 +5490,7 @@ Tax Category collection
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|Tax Category collection|[[TaxCategory](#schemataxcategory)]|false|none|none|
+|Tax Category collection|[[TaxCategoryEntity](#schemataxcategoryentity)]|false|none|none|
 
 <h2 id="tocS_ProductCatalog">ProductCatalog</h2>
 <!-- backwards compatibility -->
@@ -5153,8 +5503,7 @@ Tax Category collection
 {
   "name": "string",
   "merchantId": 0,
-  "platformId": 0,
-  "id": 0
+  "platformId": 0
 }
 
 ```
@@ -5165,10 +5514,47 @@ Product Catalog
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|Product Catalog|[Entity](#schemaentity)|false|none|none|
 |name|string|false|none|Product name.|
-|merchantId|integer|false|none|Sale point/merchnt identifier.|
+|merchantId|integer|false|none|Sale point/merchant identifier.|
 |platformId|integer|false|none|Platform identifier.|
+
+<h2 id="tocS_ProductCatalogEntity">ProductCatalogEntity</h2>
+<!-- backwards compatibility -->
+<a id="schemaproductcatalogentity"></a>
+<a id="schema_ProductCatalogEntity"></a>
+<a id="tocSproductcatalogentity"></a>
+<a id="tocsproductcatalogentity"></a>
+
+```json
+{
+  "id": 0,
+  "salePoint": "string",
+  "name": "string",
+  "merchantId": 0,
+  "platformId": 0
+}
+
+```
+
+Product Catalog entity
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|Product Catalog entity|any|false|none|none|
+
+allOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Entity](#schemaentity)|false|none|none|
+
+and
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[ProductCatalog](#schemaproductcatalog)|false|none|none|
 
 <h2 id="tocS_ProductCatalogs">ProductCatalogs</h2>
 <!-- backwards compatibility -->
@@ -5181,10 +5567,11 @@ Product Catalog
 {
   "catalogs": [
     {
+      "id": 0,
+      "salePoint": "string",
       "name": "string",
       "merchantId": 0,
-      "platformId": 0,
-      "id": 0
+      "platformId": 0
     }
   ]
 }
@@ -5197,7 +5584,7 @@ Product Catalog сollection
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|catalogs|[[ProductCatalog](#schemaproductcatalog)]|false|none|none|
+|catalogs|[[ProductCatalogEntity](#schemaproductcatalogentity)]|false|none|none|
 
 <h2 id="tocS_Category">Category</h2>
 <!-- backwards compatibility -->
@@ -5270,6 +5657,32 @@ Product Mapping Type
 |Product Mapping Type|udated|
 |Product Mapping Type|remapped|
 
+<h2 id="tocS_Image">Image</h2>
+<!-- backwards compatibility -->
+<a id="schemaimage"></a>
+<a id="schema_Image"></a>
+<a id="tocSimage"></a>
+<a id="tocsimage"></a>
+
+```json
+{
+  "url": "https//stripe.com/images/img.png",
+  "width": 32,
+  "height": 32
+}
+
+```
+
+Image
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|url|[Link](#schemalink)|true|none|Absolute URI.|
+|width|integer|true|none|Image width.|
+|height|integer|false|none|Image height.|
+
 <h2 id="tocS_Product">Product</h2>
 <!-- backwards compatibility -->
 <a id="schemaproduct"></a>
@@ -5281,8 +5694,85 @@ Product Mapping Type
 {
   "masterId": "string",
   "name": "string",
+  "image": {
+    "url": "https//stripe.com/images/img.png",
+    "width": 32,
+    "height": 32
+  },
   "shortDescription": "string",
   "description": "string",
+  "sku": [
+    {
+      "name": "Video Streaming Service",
+      "description": "Video streaming service",
+      "shortDescription": "Video streaming service",
+      "sku": "3423-23423",
+      "upc": "2323-234-343",
+      "taxCategories": [
+        {
+          "name": "software",
+          "confidence": 90,
+          "isSelected": "true"
+        },
+        {
+          "name": "hardware",
+          "confidence": 80,
+          "isSelected": "false"
+        }
+      ]
+    }
+  ],
+  "inActive": true,
+  "timestamp": "2010-10-11T21:44:22Z2",
+  "mappingType": "autoMapped",
+  "effectivePeriod": {
+    "fromDate": "2010-10-11",
+    "toDate": "2010-10-11"
+  },
+  "taxCategories": [
+    {
+      "id": 556,
+      "name": "sugar contains",
+      "confidence": 90,
+      "isManually": "true",
+      "isSelected": "true"
+    }
+  ],
+  "categories": [
+    "Videoserver"
+  ]
+}
+
+```
+
+Product
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|masterId|string|false|none|Product master id.<br>Product identifier in exernal system.|
+|name|string|true|none|Product name.|
+|image|[Image](#schemaimage)|false|none|none|
+|shortDescription|string|false|none|Short product description.|
+|description|string|false|none|Product description.|
+|sku|[[StockUnit](#schemastockunit)]|false|none|none|
+|inActive|boolean|false|none|The flag indicates that the product<br>is available now.|
+|timestamp|[DateTime](#schemadatetime)|false|none|Date-time in format [ISO-8601], YYYY-MM-DDThh:mm:ssTZD|
+|mappingType|[MappingType](#schemamappingtype)|false|none|An enumeration that represents Product Mapping Types<br>| value      | description                                    |<br>|------------|------------------------------------------------|<br>| autoMapped | For this product mapping has been done by ML   |<br>| new        | This product has been added                    |<br>| udated     | This product has been updated/changed          |<br>| remapped   | This product categoy has been remapped         ||
+|effectivePeriod|[Period](#schemaperiod)|false|none|none|
+|taxCategories|[TaxCategories](#schemataxcategories)|false|none|none|
+|categories|[Categories](#schemacategories)|false|none|none|
+
+<h2 id="tocS_ProductEntity">ProductEntity</h2>
+<!-- backwards compatibility -->
+<a id="schemaproductentity"></a>
+<a id="schema_ProductEntity"></a>
+<a id="tocSproductentity"></a>
+<a id="tocsproductentity"></a>
+
+```json
+{
   "sku": [
     {
       "id": 566,
@@ -5307,13 +5797,6 @@ Product Mapping Type
       ]
     }
   ],
-  "inActive": true,
-  "timestamp": "2019-12-12T13:19:09Z",
-  "mappingType": "autoMapped",
-  "effectivePeriod": {
-    "fromDate": "2019-12-12",
-    "toDate": "2019-12-12"
-  },
   "taxCategories": [
     {
       "id": 556,
@@ -5326,29 +5809,49 @@ Product Mapping Type
   "categories": [
     "Videoserver"
   ],
-  "id": 0
+  "id": 0,
+  "salePoint": "string",
+  "masterId": "string",
+  "name": "string",
+  "image": {
+    "url": "https//stripe.com/images/img.png",
+    "width": 32,
+    "height": 32
+  },
+  "shortDescription": "string",
+  "description": "string",
+  "inActive": true,
+  "timestamp": "2010-10-11T21:44:22Z2",
+  "mappingType": "autoMapped",
+  "effectivePeriod": {
+    "fromDate": "2010-10-11",
+    "toDate": "2010-10-11"
+  }
 }
 
 ```
 
-Product
+ProductEntity
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|Product|[Entity](#schemaentity)|false|none|none|
-|masterId|string|false|none|Product master id.<br>Product identifier in exernal system.|
-|name|string|true|none|Product name.|
-|shortDescription|string|false|none|Short product description.|
-|description|string|false|none|Product description.|
-|sku|[[StockUnit](#schemastockunit)]|false|none|none|
-|inActive|boolean|false|none|The flag indicates that the product<br>is available now.|
-|timestamp|[DateTime](#schemadatetime)|false|none|Date-time in format [ISO-8601], YYYY-MM-DDThh:mm:ssTZD|
-|mappingType|[MappingType](#schemamappingtype)|false|none|An enumeration that represents Product Mapping Types<br>| value      | description                                    |<br>|------------|------------------------------------------------|<br>| autoMapped | For this product mapping has been done by ML   |<br>| new        | This product has been added                    |<br>| udated     | This product has been updated/changed          |<br>| remapped   | This product categoy has been remapped         ||
-|effectivePeriod|[Period](#schemaperiod)|false|none|none|
+|sku|[[StockUnitEntity](#schemastockunitentity)]|false|none|none|
 |taxCategories|[TaxCategories](#schemataxcategories)|false|none|none|
 |categories|[Categories](#schemacategories)|false|none|none|
+
+allOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Entity](#schemaentity)|false|none|none|
+
+and
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Product](#schemaproduct)|false|none|none|
 
 <h2 id="tocS_StockUnit">StockUnit</h2>
 <!-- backwards compatibility -->
@@ -5356,6 +5859,49 @@ Product
 <a id="schema_StockUnit"></a>
 <a id="tocSstockunit"></a>
 <a id="tocsstockunit"></a>
+
+```json
+{
+  "name": "Video Streaming Service",
+  "description": "Video streaming service",
+  "shortDescription": "Video streaming service",
+  "sku": "3423-23423",
+  "upc": "2323-234-343",
+  "taxCategories": [
+    {
+      "name": "software",
+      "confidence": 90,
+      "isSelected": "true"
+    },
+    {
+      "name": "hardware",
+      "confidence": 80,
+      "isSelected": "false"
+    }
+  ]
+}
+
+```
+
+Stock Keeping Unit
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|sku|string|false|none|Stock Keeping Unit.|
+|name|string|false|none|Name.|
+|shortDescription|string|false|none|Short description.|
+|description|string|false|none|Description.|
+|upc|string|false|none|UPC code.|
+|taxCategories|[TaxCategories](#schemataxcategories)|false|none|none|
+
+<h2 id="tocS_StockUnitEntity">StockUnitEntity</h2>
+<!-- backwards compatibility -->
+<a id="schemastockunitentity"></a>
+<a id="schema_StockUnitEntity"></a>
+<a id="tocSstockunitentity"></a>
+<a id="tocsstockunitentity"></a>
 
 ```json
 {
@@ -5383,19 +5929,25 @@ Product
 
 ```
 
-Stock Keeping Unit
+Stock Keeping Unit Entity
 
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|Stock Keeping Unit|[Entity](#schemaentity)|false|none|none|
-|sku|string|false|none|Stock Keeping Unit.|
-|name|string|false|none|Name.|
-|shortDescription|string|false|none|Short description.|
-|description|string|false|none|Description.|
-|upc|string|false|none|UPC code.|
-|taxCategories|[TaxCategories](#schemataxcategories)|false|none|none|
+|Stock Keeping Unit Entity|any|false|none|none|
+
+allOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Entity](#schemaentity)|false|none|none|
+
+and
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[StockUnit](#schemastockunit)|false|none|none|
 
 <h2 id="tocS_Products">Products</h2>
 <!-- backwards compatibility -->
@@ -5421,10 +5973,6 @@ Stock Keeping Unit
   },
   "products": [
     {
-      "masterId": "string",
-      "name": "string",
-      "shortDescription": "string",
-      "description": "string",
       "sku": [
         {
           "id": 566,
@@ -5449,13 +5997,6 @@ Stock Keeping Unit
           ]
         }
       ],
-      "inActive": true,
-      "timestamp": "2019-12-12T13:19:09Z",
-      "mappingType": "autoMapped",
-      "effectivePeriod": {
-        "fromDate": "2019-12-12",
-        "toDate": "2019-12-12"
-      },
       "taxCategories": [
         {
           "id": 556,
@@ -5468,7 +6009,24 @@ Stock Keeping Unit
       "categories": [
         "Videoserver"
       ],
-      "id": 0
+      "id": 0,
+      "salePoint": "string",
+      "masterId": "string",
+      "name": "string",
+      "image": {
+        "url": "https//stripe.com/images/img.png",
+        "width": 32,
+        "height": 32
+      },
+      "shortDescription": "string",
+      "description": "string",
+      "inActive": true,
+      "timestamp": "2010-10-11T21:44:22Z2",
+      "mappingType": "autoMapped",
+      "effectivePeriod": {
+        "fromDate": "2010-10-11",
+        "toDate": "2010-10-11"
+      }
     }
   ]
 }
@@ -5483,7 +6041,7 @@ Product collection
 |---|---|---|---|---|
 |pagination|[Pagination](#schemapagination)|false|none|Hypermedia approach for pagination, contains links<br>for current, previous and next pages.|
 |fetchInfo|[FetchInfo](#schemafetchinfo)|false|none|Data fetch info.<br>Used for implementing data pagination.|
-|products|[[Product](#schemaproduct)]|false|none|none|
+|products|[[ProductEntity](#schemaproductentity)]|false|none|none|
 
 <h2 id="tocS_TaxLevel">TaxLevel</h2>
 <!-- backwards compatibility -->
@@ -5557,19 +6115,17 @@ Tax rate
 
 ```json
 {
-  "rates": [
-    {
-      "id": 54,
-      "description": "VAT",
-      "name": "VAT",
-      "taxLevel": "jurisdiction",
-      "rules": [
-        "s56",
-        "s55"
-      ],
-      "percentage": 7
-    }
-  ],
+  "rate": {
+    "id": 54,
+    "description": "VAT",
+    "name": "VAT",
+    "taxLevel": "jurisdiction",
+    "rules": [
+      "s56",
+      "s55"
+    ],
+    "percentage": 7
+  },
   "amount": "string"
 }
 
@@ -5581,7 +6137,7 @@ Tax
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|rates|[[TaxRate](#schemataxrate)]|false|none|none|
+|rate|[TaxRate](#schemataxrate)|false|none|none|
 |amount|[Amount](#schemaamount)|false|none|Amont in format is [ISO 20022]. <br>The decimal separator is a dot. NNNN.NN|
 
 <h2 id="tocS_TransactionType">TransactionType</h2>
@@ -5655,7 +6211,7 @@ Transaction Status
   "status": "preview",
   "order": {
     "masterId": 0,
-    "timestamp": "2019-12-12T13:19:09Z",
+    "timestamp": "2010-10-11T21:44:22Z2",
     "items": [
       {
         "id": 12,
@@ -5667,31 +6223,31 @@ Transaction Status
       }
     ],
     "total": {
-      "total": "string",
-      "subTotal": "string",
-      "totalTax": "string",
+      "total": 153.55,
+      "subtotal": 148.35,
+      "totalTax": 7.2,
       "taxDetails": [
         {
-          "rates": [
-            {
-              "id": 54,
-              "description": "VAT",
-              "name": "VAT",
-              "taxLevel": "jurisdiction",
-              "rules": [
-                "s56",
-                "s55"
-              ],
-              "percentage": 7
-            }
-          ],
-          "amount": "string"
+          "rate": {
+            "id": 54,
+            "description": "VAT",
+            "name": "VAT",
+            "taxLevel": "jurisdiction",
+            "rules": [
+              "s56",
+              "s55"
+            ],
+            "percentage": 7
+          },
+          "amount": 7.2
         }
       ]
     },
-    "id": 0
+    "id": 0,
+    "salePoint": "string"
   },
-  "id": 0
+  "id": 0,
+  "salePoint": "string"
 }
 
 ```
@@ -5705,8 +6261,79 @@ Transaction
 |Transaction|[Entity](#schemaentity)|false|none|none|
 |masterId|integer|false|none|Transaction unique identifier in master system.|
 |type|[TransactionType](#schematransactiontype)|true|none|Enumeration that represnts supportable Transaction Types <br> | value    | description                                    |<br> |----------|------------------------------------------------|<br> | new      | Default transaction type                       |<br> | complete | Complete                                       |<br> | return   | Return                                         |<br> | cancel   | Transaction  cancelled                         |<br> | adjust   | Transaction is used for price adjustment       ||
-|status|[TransactionStatus](#schematransactionstatus)|false|none|Enumeration that represnts available Transaction Statuses <br>| value   | description                                   |<br>|---------|-----------------------------------------------|<br>| preview | Precalculation                                |<br>| order   | Order                                         ||
+|status|[TransactionStatus](#schematransactionstatus)|true|none|Enumeration that represnts available Transaction Statuses <br>| value   | description                                   |<br>|---------|-----------------------------------------------|<br>| preview | Precalculation                                |<br>| order   | Order                                         ||
 |order|[Order](#schemaorder)|false|none|none|
+
+<h2 id="tocS_TransactionEntity">TransactionEntity</h2>
+<!-- backwards compatibility -->
+<a id="schematransactionentity"></a>
+<a id="schema_TransactionEntity"></a>
+<a id="tocStransactionentity"></a>
+<a id="tocstransactionentity"></a>
+
+```json
+{
+  "id": 0,
+  "salePoint": "string",
+  "masterId": 0,
+  "type": "new",
+  "status": "preview",
+  "order": {
+    "masterId": 0,
+    "timestamp": "2010-10-11T21:44:22Z2",
+    "items": [
+      {
+        "id": 12,
+        "productId": 23,
+        "masterId": 643,
+        "count": 2,
+        "name": "t-short",
+        "price": 55.44
+      }
+    ],
+    "total": {
+      "total": 153.55,
+      "subtotal": 148.35,
+      "totalTax": 7.2,
+      "taxDetails": [
+        {
+          "rate": {
+            "id": 54,
+            "description": "VAT",
+            "name": "VAT",
+            "taxLevel": "jurisdiction",
+            "rules": [
+              "s56",
+              "s55"
+            ],
+            "percentage": 7
+          },
+          "amount": 7.2
+        }
+      ]
+    },
+    "id": 0,
+    "salePoint": "string"
+  }
+}
+
+```
+
+Transaction entity
+
+### Properties
+
+allOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Entity](#schemaentity)|false|none|none|
+
+and
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Transaction](#schematransaction)|false|none|none|
 
 <h2 id="tocS_Transactions">Transactions</h2>
 <!-- backwards compatibility -->
@@ -5732,12 +6359,14 @@ Transaction
   },
   "transactions": [
     {
+      "id": 0,
+      "salePoint": "string",
       "masterId": 0,
       "type": "new",
       "status": "preview",
       "order": {
         "masterId": 0,
-        "timestamp": "2019-12-12T13:19:09Z",
+        "timestamp": "2010-10-11T21:44:22Z2",
         "items": [
           {
             "id": 12,
@@ -5749,31 +6378,29 @@ Transaction
           }
         ],
         "total": {
-          "total": "string",
-          "subTotal": "string",
-          "totalTax": "string",
+          "total": 153.55,
+          "subtotal": 148.35,
+          "totalTax": 7.2,
           "taxDetails": [
             {
-              "rates": [
-                {
-                  "id": 54,
-                  "description": "VAT",
-                  "name": "VAT",
-                  "taxLevel": "jurisdiction",
-                  "rules": [
-                    "s56",
-                    "s55"
-                  ],
-                  "percentage": 7
-                }
-              ],
-              "amount": "string"
+              "rate": {
+                "id": 54,
+                "description": "VAT",
+                "name": "VAT",
+                "taxLevel": "jurisdiction",
+                "rules": [
+                  "s56",
+                  "s55"
+                ],
+                "percentage": 7
+              },
+              "amount": 7.2
             }
           ]
         },
-        "id": 0
-      },
-      "id": 0
+        "id": 0,
+        "salePoint": "string"
+      }
     }
   ]
 }
@@ -5788,7 +6415,7 @@ Transaction collection
 |---|---|---|---|---|
 |pagination|[Pagination](#schemapagination)|false|none|Hypermedia approach for pagination, contains links<br>for current, previous and next pages.|
 |fetchInfo|[FetchInfo](#schemafetchinfo)|false|none|Data fetch info.<br>Used for implementing data pagination.|
-|transactions|[[Transaction](#schematransaction)]|false|none|none|
+|transactions|[[TransactionEntity](#schematransactionentity)]|false|none|none|
 
 <h2 id="tocS_OrderItem">OrderItem</h2>
 <!-- backwards compatibility -->
@@ -5832,25 +6459,23 @@ Order Item
 
 ```json
 {
-  "total": "string",
-  "subTotal": "string",
-  "totalTax": "string",
+  "total": 153.55,
+  "subtotal": 148.35,
+  "totalTax": 7.2,
   "taxDetails": [
     {
-      "rates": [
-        {
-          "id": 54,
-          "description": "VAT",
-          "name": "VAT",
-          "taxLevel": "jurisdiction",
-          "rules": [
-            "s56",
-            "s55"
-          ],
-          "percentage": 7
-        }
-      ],
-      "amount": "string"
+      "rate": {
+        "id": 54,
+        "description": "VAT",
+        "name": "VAT",
+        "taxLevel": "jurisdiction",
+        "rules": [
+          "s56",
+          "s55"
+        ],
+        "percentage": 7
+      },
+      "amount": 7.2
     }
   ]
 }
@@ -5878,7 +6503,7 @@ Order Total
 ```json
 {
   "masterId": 0,
-  "timestamp": "2019-12-12T13:19:09Z",
+  "timestamp": "2010-10-11T21:44:22Z2",
   "items": [
     {
       "id": 12,
@@ -5890,29 +6515,28 @@ Order Total
     }
   ],
   "total": {
-    "total": "string",
-    "subTotal": "string",
-    "totalTax": "string",
+    "total": 153.55,
+    "subtotal": 148.35,
+    "totalTax": 7.2,
     "taxDetails": [
       {
-        "rates": [
-          {
-            "id": 54,
-            "description": "VAT",
-            "name": "VAT",
-            "taxLevel": "jurisdiction",
-            "rules": [
-              "s56",
-              "s55"
-            ],
-            "percentage": 7
-          }
-        ],
-        "amount": "string"
+        "rate": {
+          "id": 54,
+          "description": "VAT",
+          "name": "VAT",
+          "taxLevel": "jurisdiction",
+          "rules": [
+            "s56",
+            "s55"
+          ],
+          "percentage": 7
+        },
+        "amount": 7.2
       }
     ]
   },
-  "id": 0
+  "id": 0,
+  "salePoint": "string"
 }
 
 ```
@@ -5928,6 +6552,74 @@ Order
 |timestamp|[DateTime](#schemadatetime)|false|none|Date-time in format [ISO-8601], YYYY-MM-DDThh:mm:ssTZD|
 |items|[[OrderItem](#schemaorderitem)]|false|none|none|
 |total|[OrderTotal](#schemaordertotal)|false|none|Order total.|
+
+<h2 id="tocS_OrderEntity">OrderEntity</h2>
+<!-- backwards compatibility -->
+<a id="schemaorderentity"></a>
+<a id="schema_OrderEntity"></a>
+<a id="tocSorderentity"></a>
+<a id="tocsorderentity"></a>
+
+```json
+{
+  "id": 0,
+  "salePoint": "string",
+  "masterId": 0,
+  "timestamp": "2010-10-11T21:44:22Z2",
+  "items": [
+    {
+      "id": 12,
+      "productId": 23,
+      "masterId": 643,
+      "count": 2,
+      "name": "t-short",
+      "price": 55.44
+    }
+  ],
+  "total": {
+    "total": 153.55,
+    "subtotal": 148.35,
+    "totalTax": 7.2,
+    "taxDetails": [
+      {
+        "rate": {
+          "id": 54,
+          "description": "VAT",
+          "name": "VAT",
+          "taxLevel": "jurisdiction",
+          "rules": [
+            "s56",
+            "s55"
+          ],
+          "percentage": 7
+        },
+        "amount": 7.2
+      }
+    ]
+  }
+}
+
+```
+
+Order Entity
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|Order Entity|any|false|none|none|
+
+allOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Entity](#schemaentity)|false|none|none|
+
+and
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[Order](#schemaorder)|false|none|none|
 
 <h2 id="tocS_TransactionSummary">TransactionSummary</h2>
 <!-- backwards compatibility -->
@@ -5955,59 +6647,6 @@ Transaction Summary
 |totalSales|[Amount](#schemaamount)|false|none|Amont in format is [ISO 20022]. <br>The decimal separator is a dot. NNNN.NN|
 |totalTax|[Amount](#schemaamount)|false|none|Amont in format is [ISO 20022]. <br>The decimal separator is a dot. NNNN.NN|
 
-<h2 id="tocS_LogRequest">LogRequest</h2>
-<!-- backwards compatibility -->
-<a id="schemalogrequest"></a>
-<a id="schema_LogRequest"></a>
-<a id="tocSlogrequest"></a>
-<a id="tocslogrequest"></a>
-
-```json
-{
-  "url": "http://vertex.com/api/v1.2/transactions/123?page=1",
-  "uri": "api/v1.2/transactions/123",
-  "query": "page=1",
-  "method": "GET"
-}
-
-```
-
-Log Request
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|query|string|false|none|Request query.|
-|uri|string|false|none|Request uri.|
-|url|string|false|none|Request url.|
-|body|string|false|none|Request body.|
-|method|string|false|none|Request method.|
-
-<h2 id="tocS_LogResponse">LogResponse</h2>
-<!-- backwards compatibility -->
-<a id="schemalogresponse"></a>
-<a id="schema_LogResponse"></a>
-<a id="tocSlogresponse"></a>
-<a id="tocslogresponse"></a>
-
-```json
-{
-  "code": "200",
-  "content": "log trace"
-}
-
-```
-
-Log Response
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|code|string|false|none|Response code.|
-|content|string|false|none|Response content.|
-
 <h2 id="tocS_Log">Log</h2>
 <!-- backwards compatibility -->
 <a id="schemalog"></a>
@@ -6017,18 +6656,10 @@ Log Response
 
 ```json
 {
-  "request": {
-    "url": "http://vertex.com/api/v1.2/transactions/123?page=1",
-    "uri": "api/v1.2/transactions/123",
-    "query": "page=1",
-    "method": "GET"
-  },
-  "response": {
-    "code": "200",
-    "content": "log trace"
-  },
-  "date": "2019-12-12T13:19:09Z",
-  "correlationId": "string"
+  "request": "http://192.168.0.17/api/v1.2/nextPage?size=12",
+  "response": "http://192.168.0.17/api/v1.2/nextPage?size=12",
+  "date": "2010-10-11",
+  "salePoint": "string"
 }
 
 ```
@@ -6039,10 +6670,10 @@ Log
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|request|[LogRequest](#schemalogrequest)|false|none|none|
-|response|[LogResponse](#schemalogresponse)|false|none|none|
-|date|[DateTime](#schemadatetime)|false|none|Date-time in format [ISO-8601], YYYY-MM-DDThh:mm:ssTZD|
-|correlationId|string|false|none|Unique identifier that helps to trace request.|
+|request|[Link](#schemalink)|false|none|Absolute URI.|
+|response|[Link](#schemalink)|false|none|Absolute URI.|
+|date|[Date](#schemadate)|false|none|Date in format [ISO-8601], YYYY-MM-DD|
+|salePoint|string|false|none|Sale point identifier, email.|
 
 <h2 id="tocS_Logs">Logs</h2>
 <!-- backwards compatibility -->
@@ -6055,18 +6686,10 @@ Log
 {
   "logs": [
     {
-      "request": {
-        "url": "http://vertex.com/api/v1.2/transactions/123?page=1",
-        "uri": "api/v1.2/transactions/123",
-        "query": "page=1",
-        "method": "GET"
-      },
-      "response": {
-        "code": "200",
-        "content": "log trace"
-      },
-      "date": "2019-12-12T13:19:09Z",
-      "correlationId": "string"
+      "request": "http://192.168.0.17/api/v1.2/nextPage?size=12",
+      "response": "http://192.168.0.17/api/v1.2/nextPage?size=12",
+      "date": "2010-10-11",
+      "salePoint": "string"
     }
   ]
 }
@@ -6079,5 +6702,5 @@ Log collection
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|logs|[[Log](#schemalog)]|false|none|[API request log.<br>]|
+|logs|[[Log](#schemalog)]|false|none|[Tax calculation log.<br>]|
 
