@@ -23,19 +23,21 @@ under the License.
       <div id="toc" class="toc-list-h1">
         <ul class="toc-list-h1">
         <% for (var h1 of toc_data(page_content)) { %>
-          <li class="toc-link toc-h1" data-href="#<%= h1.id %>" >
-            <span class="" data-title="<%= h1.title %>"><%- h1.content %></span>
+          <li>
+            <div class="toc-link toc-h1" data-href="#<%= h1.id %>" data-title="<%= h1.title %>"><%- h1.content %></div>
             <% if (h1.children && (h1.children.length > 0)) { %>
               <ul class="toc-list-h2">
                 <% for (var h2 of h1.children) { %>
-                  <li class="toc-link" data-href="#<%= h2.id %>">
-                    <span class="toc-h2 toc-method-label"><%= h2.method %></span>
-                    <span class="toc-h2" data-title="<%= h2.title %>"><%- h2.content %></span>
+                  <li class="toc-link toc-h2" data-href="#<%= h2.id %>">
+                    <% if (h2.method) { %>
+                        <span class="toc-method-label"><%= h2.method %></span>
+                    <% } %>
+                    <span data-title="<%= h2.title %>"><%- h2.content %></span>
                     <% if (h2.children && (h2.children.length > 0)) { %>
                       <ul class="toc-list-h3">
                       <% for (var h3 of h2.children) { %>
-                      <li class="toc-link" data-href="#<%= h3.id %>">
-                        <span class="toc-h3" data-title="<%= h3.title %>"><%- h3.content %> <%= h3.method %>
+                      <li class="toc-link toc-h3" data-href="#<%= h3.id %>">
+                        <span data-title="<%= h3.title %>"><%- h3.content %> <%= h3.method %>
                         </span>
                       </li>
                       <% } %>

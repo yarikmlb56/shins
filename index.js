@@ -194,7 +194,7 @@ function postProcess(content) {
         return '<' + header + ' id="' + cleanId(title) + '">' + title + '</' + header + '>';
     });
 
-    // clean up the other ids as well
+    // openapi.yml up the other ids as well
     content = content.replace(/\<(h[123456]) id="(.*)"\>(.*)\<\/h[123456]\>/g, function (match, header, id, title) {
         return '<' + header + ' id="' + cleanId(id) + '">' + title + '</' + header + '>';
     });
@@ -208,24 +208,31 @@ function clean(s) {
     let sanitizeOptions = {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'h1', 'h2', 'img', 'aside', 'article', 'details',
             'summary', 'abbr', 'meta', 'link' ]),
-        allowedAttributes: { a: [ 'href', 'id', 'name', 'target', 'class' ], img: [ 'src', 'alt', 'class' ] , aside: [ 'class' ],
-            abbr: [ 'title', 'class' ], details: [ 'open', 'class' ], div: [ 'class' ], meta: [ 'name', 'content' ],
+        allowedAttributes: { a: [ 'href', 'id', 'name', 'target', 'class' ], img: [ 'src', 'alt', 'class' ] , aside: [ 'clasopenapi.mds' ],
+            abbr: [ 'title', 'class' ], details: [ 'open', 'class' ], div: [ 'class', 'id' ], meta: [ 'name', 'content' ],
             link: [ 'rel', 'href', 'type', 'sizes' ],
             h1: [ 'id' ], h2: [ 'id' ], h3: [ 'id' ], h4: [ 'id' ], h5: [ 'id' ], h6: [ 'id' ],
             table: [ 'class' ], tr: [ 'class' ], td: [ 'class' ],
-            blockquote: [ 'class', 'id' ]}
+            blockquote: [ 'class', 'id' ]},
     };
     // replace things which look like tags which sanitizeHtml will eat
     s = s.split('\n>').join('\n$1$');
     s = s.split('>=').join('$2$');
     s = s.split('<=').join('$3$');
-    let a = s.split('```');
-    for (let i=0;i<a.length;i++) {
-        if (!a[i].startsWith('xml')) {
-            a[i] = sanitizeHtml(a[i],sanitizeOptions);
-        }
-    }
-    s = a.join('```');
+    // let a = s.split('```');
+    // for (let i=0;i<a.length;i++) {
+    //     if (!a[i].startsWith('xml')) {
+    //
+    //
+    //         if (a[i].includes('div')) {
+    //         }
+    //         a[i] = sanitizeHtml(a[i],sanitizeOptions);
+    //         // if (a[i].includes('div')) {
+    //         // }
+    //     }
+    // }
+
+    s = sanitizeHtml(s,sanitizeOptions);
     // put back things which sanitizeHtml has mangled
     s = s.split('&quot;').join('"');
     s = s.split('&amp;').join('&');
@@ -262,7 +269,6 @@ function getMimeType(imageSource) {
 }
 
 function render(inputStr, options, callback) {
-
     if (options.attr) md.use(attrs);
     if (options['no-links']) md.disable('linkify');
 
@@ -297,15 +303,13 @@ function render(inputStr, options, callback) {
 
         while (inputArr.length<3) inputArr.push('');
         var content = preProcess(inputArr[2],options);
-
         content = md.render(clean(content));
-
+;
         content = postProcess(content);
         var locals = {};
         locals.current_page = {};
         locals.current_page.data = header;
         locals.page_content = content;
-
         locals.toc_data = function(content) {
             var $ = cheerio.load(content);
             var result = [];
