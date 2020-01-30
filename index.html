@@ -894,8 +894,9 @@
       <div class="dark-box"></div>
       <div class="content">
         <div class="total">
-<div class="description">
 <h1 id="api-for-tax-calculator">API for Tax Calculator v0.0.2 alfa, Dec 2019</h1>
+<div class="endpoint-data">
+<div class="description">
 Vertex API for Tax Calculator.
 <p>Base URLs:</p>
 <ul>
@@ -903,7 +904,14 @@ Vertex API for Tax Calculator.
 </ul>
 <p>Web: <a href="http://www.vertex.com">API Support</a>
 License: <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a></p>
+</div>
+<div class="code-examples">
+Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+</div>
+</div>
 <h1 id="authentication">Authentication</h1>
+<div class="endpoint-data">
+<div class="description">
 <ul>
 <li>HTTP Authentication, scheme: bearer</li>
 </ul>
@@ -915,8 +923,6 @@ License: <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</
 </li>
 </ul>
 </div>
-<div class="code-examples">
-Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 </div>
 </div>
 <div class="total">
@@ -939,21 +945,21 @@ Scroll down for code samples, example requests and responses. Select a language 
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns collectin of the templates for</td>
 <td></td>
 </tr>
 <tr>
 <td>current sale channel.</td>
-<td><a href="#schematemplates">Templates</a></td>
+<td><a href="#tocs_templates">Templates</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to find any template.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -1041,25 +1047,25 @@ for current sale channel.</p>
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Template is added successfully.</td>
-<td><a href="#schematemplateentity">TemplateEntity</a></td>
+<td><a href="#tocs_templateentity">TemplateEntity</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to register template.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to register template.</td>
 <td></td>
 </tr>
 <tr>
 <td>Template with the same name is already registered.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -1155,15 +1161,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Template</td>
-<td><a href="#schematemplateentity">TemplateEntity</a></td>
+<td><a href="#tocs_templateentity">TemplateEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to find template.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -1255,15 +1261,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Template is updated successfully.</td>
-<td><a href="#schematemplateentity">TemplateEntity</a></td>
+<td><a href="#tocs_templateentity">TemplateEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to update template.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -1357,15 +1363,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Template is deleted successfully.</td>
-<td><a href="#schematemplateentity">TemplateEntity</a></td>
+<td><a href="#tocs_templateentity">TemplateEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Template not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -1458,21 +1464,21 @@ sale channel by e-mail.</p>
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Notification sent successfully.</td>
 <td></td>
 </tr>
 <tr>
 <td>Returns fulfilled message.</td>
-<td><a href="#schemamessageentity">MessageEntity</a></td>
+<td><a href="#tocs_messageentity">MessageEntity</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to send notification.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -1596,21 +1602,21 @@ creates its own account.</li>
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Account created successfully.</td>
-<td><a href="#schemaaccountentity">AccountEntity</a></td>
+<td><a href="#tocs_accountentity">AccountEntity</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to create account.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>409</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.8">Conflict</a></td>
+<td>Conflict</td>
 <td>Account already exists.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -1708,15 +1714,15 @@ used as an account identifier.</p>
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns account information.</td>
-<td><a href="#schemaaccountinfo">AccountInfo</a></td>
+<td><a href="#tocs_accountinfo">AccountInfo</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to find an account.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -1828,21 +1834,21 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>204</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
+<td>No Content</td>
 <td>Account updated successfully.</td>
-<td><a href="#schemaaccountentity">AccountEntity</a></td>
+<td><a href="#tocs_accountentity">AccountEntity</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to update account.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Account not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -1937,15 +1943,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Account updated successfully.</td>
-<td><a href="#schemaaccountentity">AccountEntity</a></td>
+<td><a href="#tocs_accountentity">AccountEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to make an account inactive.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -2031,21 +2037,21 @@ can be used for resetting account password.</p>
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Link created successfully.</td>
-<td><a href="#schemalink">Link</a></td>
+<td><a href="#tocs_link">Link</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to create a link.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>409</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.8">Conflict</a></td>
+<td>Conflict</td>
 <td>Unble to find account.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -2136,15 +2142,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns token.</td>
-<td><a href="#schematokens">Tokens</a></td>
+<td><a href="#tocs_tokens">Tokens</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to return tokens.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -2244,15 +2250,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Returns a token.</td>
-<td><a href="#schematoken">Token</a></td>
+<td><a href="#tocs_token">Token</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to create token.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -2346,21 +2352,21 @@ They can't be revoked.</p>
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>The token revoken successfully.</td>
-<td><a href="#schematoken">Token</a></td>
+<td><a href="#tocs_token">Token</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to revoke token.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>409</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.8">Conflict</a></td>
+<td>Conflict</td>
 <td>Unable to revoke the last token.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -2446,15 +2452,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns contact information.</td>
-<td><a href="#schemacontactinfoentity">ContactInfoEntity</a></td>
+<td><a href="#tocs_contactinfoentity">ContactInfoEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to add contact information.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -2553,15 +2559,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Contact information added successfully.</td>
-<td><a href="#schemacontactinfoentity">ContactInfoEntity</a></td>
+<td><a href="#tocs_contactinfoentity">ContactInfoEntity</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to add contact information.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -2692,25 +2698,25 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>204</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
+<td>No Content</td>
 <td>Contact information updated successfully</td>
-<td><a href="#schemacontactinfoentity">ContactInfoEntity</a></td>
+<td><a href="#tocs_contactinfoentity">ContactInfoEntity</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to update contact information.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to update contact information,</td>
 <td></td>
 </tr>
 <tr>
 <td>account or contact information not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -2819,15 +2825,15 @@ for current sale point.</p>
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns location collection</td>
-<td><a href="#schemalocations">Locations</a></td>
+<td><a href="#tocs_locations">Locations</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Locations not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -2921,19 +2927,19 @@ only one adminisrative location are possible.</p>
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Location added successfully</td>
-<td><a href="#schemalocationentity">LocationEntity</a></td>
+<td><a href="#tocs_locationentity">LocationEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to add location.</td>
 <td></td>
 </tr>
 <tr>
 <td>Location is already added.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3037,15 +3043,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns location</td>
-<td><a href="#schemalocationentity">LocationEntity</a></td>
+<td><a href="#tocs_locationentity">LocationEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Location not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -3141,25 +3147,25 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>204</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
+<td>No Content</td>
 <td>Location is updated successfully.</td>
-<td><a href="#schemalocationentity">LocationEntity</a></td>
+<td><a href="#tocs_locationentity">LocationEntity</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to update location.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to update location.</td>
 <td></td>
 </tr>
 <tr>
 <td>Location not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3265,15 +3271,15 @@ It can't be removed.</p>
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Location deleted successfully.</td>
-<td><a href="#schemalocationentity">LocationEntity</a></td>
+<td><a href="#tocs_locationentity">LocationEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Location not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -3362,25 +3368,25 @@ find zip extension.</p>
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns location is standard format.</td>
-<td><a href="#schemalocation">Location</a></td>
+<td><a href="#tocs_location">Location</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to validate defined location.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to validate defined location.</td>
 <td></td>
 </tr>
 <tr>
 <td>Location has invalid format.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3464,15 +3470,15 @@ for current sales point.</p>
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns business information.</td>
-<td><a href="#schemabusinessinfoentity">BusinessInfoEntity</a></td>
+<td><a href="#tocs_businessinfoentity">BusinessInfoEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Business information not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -3555,25 +3561,25 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Business information added successfully.</td>
-<td><a href="#schemabusinessinfo">BusinessInfo</a></td>
+<td><a href="#tocs_businessinfo">BusinessInfo</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to add business information.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to add business information.</td>
 <td></td>
 </tr>
 <tr>
 <td>Business infomatin aleready added.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3675,25 +3681,25 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>204</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
+<td>No Content</td>
 <td>Business information updated sucessfully.</td>
-<td><a href="#schemabusinessinfoentity">BusinessInfoEntity</a></td>
+<td><a href="#tocs_businessinfoentity">BusinessInfoEntity</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to update business information.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to update business information.</td>
 <td></td>
 </tr>
 <tr>
 <td>Business information not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -3771,15 +3777,15 @@ Partner is able to get set of the catalogs.</p>
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns product catalog.</td>
-<td><a href="#schemaproductcatalogs">ProductCatalogs</a></td>
+<td><a href="#tocs_productcatalogs">ProductCatalogs</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to find product calalog.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -3852,27 +3858,27 @@ return-a-process-status.
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Returns a link which is used for checking upload</td>
 <td></td>
 </tr>
 <tr>
 <td>processing status.</td>
-<td><a href="#schemalink">Link</a></td>
+<td><a href="#tocs_link">Link</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to upload catalog.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Catalog has invalid structure.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -3953,15 +3959,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Return product catalog</td>
-<td><a href="#schemaproductcatalogentity">ProductCatalogEntity</a></td>
+<td><a href="#tocs_productcatalogentity">ProductCatalogEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to find product catalog.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -4050,15 +4056,15 @@ Endpoint returns a link for checking process status.</p>
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Returns a link which for checking process status.</td>
-<td><a href="#schemalink">Link</a></td>
+<td><a href="#tocs_link">Link</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to find catalog.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -4140,19 +4146,19 @@ The endpoint returns product catalog processing status.</p>
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns processing status.</td>
-<td><a href="#schemaprocessingstatus">ProcessingStatus</a></td>
+<td><a href="#tocs_processingstatus">ProcessingStatus</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to return processing status.</td>
 <td></td>
 </tr>
 <tr>
 <td>Invalid process identifier.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4239,19 +4245,19 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Customer is agree with tax categorization.</td>
-<td><a href="#schemaobject">Object</a></td>
+<td><a href="#tocs_object">Object</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Invalid identifier, catalog not found</td>
 <td></td>
 </tr>
 <tr>
 <td>or processing is not finished.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -4335,21 +4341,21 @@ new/updated products only.</p>
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Returns a product catalog.</td>
-<td><a href="#schemaproductcatalog">ProductCatalog</a></td>
+<td><a href="#tocs_productcatalog">ProductCatalog</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to return catalogue.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Invalid product catalog identifier.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -4495,15 +4501,15 @@ Other ones are alternative.</li>
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Returns collection of the products.</td>
-<td><a href="#schemaproducts">Products</a></td>
+<td><a href="#tocs_products">Products</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Product catalog not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -4664,15 +4670,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Product added successfully.</td>
-<td><a href="#schemaproductentity">ProductEntity</a></td>
+<td><a href="#tocs_productentity">ProductEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to add product to catalog.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -4864,15 +4870,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Returns the product</td>
-<td><a href="#schemaproductentity">ProductEntity</a></td>
+<td><a href="#tocs_productentity">ProductEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>The product not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -5016,21 +5022,21 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>204</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
+<td>No Content</td>
 <td>The product updated successfully.</td>
-<td><a href="#schemaproductentity">ProductEntity</a></td>
+<td><a href="#tocs_productentity">ProductEntity</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to updateproduct.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>The product not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -5234,15 +5240,15 @@ for current sale point.</p>
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns logs</td>
-<td><a href="#schemalogs">Logs</a></td>
+<td><a href="#tocs_logs">Logs</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to find logs by defined criterias.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -5368,15 +5374,15 @@ Trnsactions can be selected by specified criteria.</p>
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns transactions</td>
-<td><a href="#schematransactions">Transactions</a></td>
+<td><a href="#tocs_transactions">Transactions</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to get transactions with defined criterias.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -5535,15 +5541,15 @@ Comma is used as a delimiter.</p>
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns transaction summary</td>
-<td><a href="#schematransactionsummary">TransactionSummary</a></td>
+<td><a href="#tocs_transactionsummary">TransactionSummary</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to get transaction summary.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -5644,15 +5650,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns journal in CVS format.</td>
-<td><a href="#schemaobject">Object</a></td>
+<td><a href="#tocs_object">Object</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to create transaction journal.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -5738,25 +5744,25 @@ Total includes collection taxes.</p>
 <tbody>
 <tr>
 <td>201</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
 <td>Returns transaction with total.</td>
-<td><a href="#schematransaction">Transaction</a></td>
+<td><a href="#tocs_transaction">Transaction</a></td>
 </tr>
 <tr>
 <td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
 <td>Unable to add transaction.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 <tr>
 <td>409</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.8">Conflict</a></td>
+<td>Conflict</td>
 <td>Unable to add transaction.</td>
 <td></td>
 </tr>
 <tr>
 <td>Transactions already registered.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -5931,15 +5937,15 @@ System.out.println(response.toString());
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Returns a transaction.</td>
-<td><a href="#schematransactionentity">TransactionEntity</a></td>
+<td><a href="#tocs_transactionentity">TransactionEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Transaction with specified id not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 </tr>
 </tbody>
 </table>
@@ -6065,19 +6071,19 @@ Soft delete.</p>
 <tbody>
 <tr>
 <td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
 <td>Transaction deleted successfully.</td>
-<td><a href="#schematransactionentity">TransactionEntity</a></td>
+<td><a href="#tocs_transactionentity">TransactionEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to delete transaction.</td>
 <td></td>
 </tr>
 <tr>
 <td>Transaction with specified id not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -6211,19 +6217,19 @@ Safe operation.</p>
 <tbody>
 <tr>
 <td>204</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
+<td>No Content</td>
 <td>Transaction updated successfully.</td>
-<td><a href="#schematransactionentity">TransactionEntity</a></td>
+<td><a href="#tocs_transactionentity">TransactionEntity</a></td>
 </tr>
 <tr>
 <td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
 <td>Unable to update transaction.</td>
 <td></td>
 </tr>
 <tr>
 <td>Transaction with specified id not found.</td>
-<td><a href="#schemaerrors">Errors</a></td>
+<td><a href="#tocs_errors">Errors</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -10922,11 +10928,11 @@ System.out.println(response.toString());
           <div class="lang-selector">
             
               
-                <a href="#" data-language-name="shell">Curl</a>
+                <span data-language-name="shell">Curl</span>
               
             
               
-                <a href="#" data-language-name="java">Unirest</a>
+                <span data-language-name="java">Unirest</span>
               
             
           </div>

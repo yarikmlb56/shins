@@ -14,8 +14,9 @@ headingLevel: 2
 <!-- Generator: Widdershins v3.6.6 -->
 
 <div class="total">
-<div class="description">
 <h1 id="api-for-tax-calculator">API for Tax Calculator v0.0.2 alfa, Dec 2019</h1>
+<div class="endpoint-data">
+<div class="description">
 Vertex API for Tax Calculator.
 
 Base URLs:
@@ -25,7 +26,15 @@ Base URLs:
 Web: <a href="http://www.vertex.com">API Support</a> 
 License: <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>
 
+</div>
+<div class="code-examples">
+Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+</div>
+</div>
+
 # Authentication
+<div class="endpoint-data">
+<div class="description">
 
 - HTTP Authentication, scheme: bearer 
 
@@ -33,10 +42,8 @@ License: <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</
     - Parameter Name: **apikey**, in: header. API key to authorize requests.
 
 </div>
-<div class="code-examples">
-Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
-
 </div>
+
 </div>
 
 <div class="total">
@@ -55,9 +62,9 @@ Returns registered templates for current sale channel.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns collectin of the templates for 
-current sale channel.|[Templates](#schematemplates)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find any template.|[Errors](#schemaerrors)|
+|200|OK|Returns collectin of the templates for 
+current sale channel.|[Templates](#tocs_templates)|
+|404|Not Found|Unable to find any template.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -129,10 +136,10 @@ for current sale channel.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Template is added successfully.|[TemplateEntity](#schematemplateentity)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to register template.|[Errors](#schemaerrors)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to register template. 
-Template with the same name is already registered.|[Errors](#schemaerrors)|
+|201|Created|Template is added successfully.|[TemplateEntity](#tocs_templateentity)|
+|400|Bad Request|Unable to register template.|[Errors](#tocs_errors)|
+|404|Not Found|Unable to register template. 
+Template with the same name is already registered.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -213,8 +220,8 @@ Returns template with defined id.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Template|[TemplateEntity](#schematemplateentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find template.|[Errors](#schemaerrors)|
+|200|OK|Template|[TemplateEntity](#tocs_templateentity)|
+|404|Not Found|Unable to find template.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -286,8 +293,8 @@ Makes changes in the defined template.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Template is updated successfully.|[TemplateEntity](#schematemplateentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to update template.|[Errors](#schemaerrors)|
+|201|Created|Template is updated successfully.|[TemplateEntity](#tocs_templateentity)|
+|404|Not Found|Unable to update template.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -368,8 +375,8 @@ Deletes the defined template.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Template is deleted successfully.|[TemplateEntity](#schematemplateentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Template not found.|[Errors](#schemaerrors)|
+|200|OK|Template is deleted successfully.|[TemplateEntity](#tocs_templateentity)|
+|404|Not Found|Template not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -442,9 +449,9 @@ sale channel by e-mail.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Notification sent successfully.
-Returns fulfilled message.|[MessageEntity](#schemamessageentity)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to send notification.|[Errors](#schemaerrors)|
+|201|Created|Notification sent successfully.
+Returns fulfilled message.|[MessageEntity](#tocs_messageentity)|
+|400|Bad Request|Unable to send notification.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -549,9 +556,9 @@ creates its own account.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Account created successfully.|[AccountEntity](#schemaaccountentity)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to create account.|[Errors](#schemaerrors)|
-|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Account already exists.|[Errors](#schemaerrors)|
+|201|Created|Account created successfully.|[AccountEntity](#tocs_accountentity)|
+|400|Bad Request|Unable to create account.|[Errors](#tocs_errors)|
+|409|Conflict|Account already exists.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -636,8 +643,8 @@ used as an account identifier.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns account information.|[AccountInfo](#schemaaccountinfo)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find an account.|[Errors](#schemaerrors)|
+|200|OK|Returns account information.|[AccountInfo](#tocs_accountinfo)|
+|404|Not Found|Unable to find an account.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -729,9 +736,9 @@ Updates account password.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Account updated successfully.|[AccountEntity](#schemaaccountentity)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to update account.|[Errors](#schemaerrors)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Account not found.|[Errors](#schemaerrors)|
+|204|No Content|Account updated successfully.|[AccountEntity](#tocs_accountentity)|
+|400|Bad Request|Unable to update account.|[Errors](#tocs_errors)|
+|404|Not Found|Account not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -813,8 +820,8 @@ System.out.println(response.toString());
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Account updated successfully.|[AccountEntity](#schemaaccountentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to make an account inactive.|[Errors](#schemaerrors)|
+|200|OK|Account updated successfully.|[AccountEntity](#tocs_accountentity)|
+|404|Not Found|Unable to make an account inactive.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -886,9 +893,9 @@ can be used for resetting account password.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Link created successfully.|[Link](#schemalink)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to create a link.|[Errors](#schemaerrors)|
-|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Unble to find account.|[Errors](#schemaerrors)|
+|201|Created|Link created successfully.|[Link](#tocs_link)|
+|400|Bad Request|Unable to create a link.|[Errors](#tocs_errors)|
+|409|Conflict|Unble to find account.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -962,8 +969,8 @@ Returns collection of active tokens for current sale point.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns token.|[Tokens](#schematokens)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to return tokens.|[Errors](#schemaerrors)|
+|200|OK|Returns token.|[Tokens](#tocs_tokens)|
+|404|Not Found|Unable to return tokens.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -1047,8 +1054,8 @@ Creates a new token for API call.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns a token.|[Token](#schematoken)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to create token.|[Errors](#schemaerrors)|
+|201|Created|Returns a token.|[Token](#tocs_token)|
+|400|Bad Request|Unable to create token.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -1127,9 +1134,9 @@ They can't be revoked.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The token revoken successfully.|[Token](#schematoken)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to revoke token.|[Errors](#schemaerrors)|
-|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Unable to revoke the last token.|[Errors](#schemaerrors)|
+|200|OK|The token revoken successfully.|[Token](#tocs_token)|
+|404|Not Found|Unable to revoke token.|[Errors](#tocs_errors)|
+|409|Conflict|Unable to revoke the last token.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -1201,8 +1208,8 @@ The endpoint returns contact information.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns contact information.|[ContactInfoEntity](#schemacontactinfoentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to add contact information.|[Errors](#schemaerrors)|
+|200|OK|Returns contact information.|[ContactInfoEntity](#tocs_contactinfoentity)|
+|404|Not Found|Unable to add contact information.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -1285,8 +1292,8 @@ The endpoint is used to add contact information.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Contact information added successfully.|[ContactInfoEntity](#schemacontactinfoentity)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to add contact information.|[Errors](#schemaerrors)|
+|201|Created|Contact information added successfully.|[ContactInfoEntity](#tocs_contactinfoentity)|
+|400|Bad Request|Unable to add contact information.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -1396,10 +1403,10 @@ The endpoint is used to update contact information.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Contact information updated successfully|[ContactInfoEntity](#schemacontactinfoentity)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to update contact information.|[Errors](#schemaerrors)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to update contact information, 
-account or contact information not found.|[Errors](#schemaerrors)|
+|204|No Content|Contact information updated successfully|[ContactInfoEntity](#tocs_contactinfoentity)|
+|400|Bad Request|Unable to update contact information.|[Errors](#tocs_errors)|
+|404|Not Found|Unable to update contact information, 
+account or contact information not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -1508,8 +1515,8 @@ for current sale point.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns location collection|[Locations](#schemalocations)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Locations not found.|[Errors](#schemaerrors)|
+|200|OK|Returns location collection|[Locations](#tocs_locations)|
+|404|Not Found|Locations not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -1588,9 +1595,9 @@ only one adminisrative location are possible.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Location added successfully|[LocationEntity](#schemalocationentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to add location. 
-Location is already added.|[Errors](#schemaerrors)|
+|201|Created|Location added successfully|[LocationEntity](#tocs_locationentity)|
+|404|Not Found|Unable to add location. 
+Location is already added.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -1679,8 +1686,8 @@ Returns location with defined id.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns location|[LocationEntity](#schemalocationentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Location not found.|[Errors](#schemaerrors)|
+|200|OK|Returns location|[LocationEntity](#tocs_locationentity)|
+|404|Not Found|Location not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -1756,10 +1763,10 @@ The endpoint is used to update location.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Location is updated successfully.|[LocationEntity](#schemalocationentity)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to update location.|[Errors](#schemaerrors)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to update location. 
-Location not found.|[Errors](#schemaerrors)|
+|204|No Content|Location is updated successfully.|[LocationEntity](#tocs_locationentity)|
+|400|Bad Request|Unable to update location.|[Errors](#tocs_errors)|
+|404|Not Found|Unable to update location. 
+Location not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -1850,8 +1857,8 @@ It can't be removed.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Location deleted successfully.|[LocationEntity](#schemalocationentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Location not found.|[Errors](#schemaerrors)|
+|200|OK|Location deleted successfully.|[LocationEntity](#tocs_locationentity)|
+|404|Not Found|Location not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -1924,10 +1931,10 @@ find zip extension.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns location is standard format.|[Location](#schemalocation)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to validate defined location.|[Errors](#schemaerrors)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to validate defined location.
-Location has invalid format.|[Errors](#schemaerrors)|
+|200|OK|Returns location is standard format.|[Location](#tocs_location)|
+|400|Bad Request|Unable to validate defined location.|[Errors](#tocs_errors)|
+|404|Not Found|Unable to validate defined location.
+Location has invalid format.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -2011,8 +2018,8 @@ for current sales point.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns business information.|[BusinessInfoEntity](#schemabusinessinfoentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Business information not found.|[Errors](#schemaerrors)|
+|200|OK|Returns business information.|[BusinessInfoEntity](#tocs_businessinfoentity)|
+|404|Not Found|Business information not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -2079,10 +2086,10 @@ The endpoint is used to add business information.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Business information added successfully.|[BusinessInfo](#schemabusinessinfo)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to add business information.|[Errors](#schemaerrors)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to add business information.
-Business infomatin aleready added.|[Errors](#schemaerrors)|
+|201|Created|Business information added successfully.|[BusinessInfo](#tocs_businessinfo)|
+|400|Bad Request|Unable to add business information.|[Errors](#tocs_errors)|
+|404|Not Found|Unable to add business information.
+Business infomatin aleready added.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -2163,10 +2170,10 @@ Update business information.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Business information updated sucessfully.|[BusinessInfoEntity](#schemabusinessinfoentity)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to update business information.|[Errors](#schemaerrors)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to update business information.
-Business information not found.|[Errors](#schemaerrors)|
+|204|No Content|Business information updated sucessfully.|[BusinessInfoEntity](#tocs_businessinfoentity)|
+|400|Bad Request|Unable to update business information.|[Errors](#tocs_errors)|
+|404|Not Found|Unable to update business information.
+Business information not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -2244,8 +2251,8 @@ Partner is able to get set of the catalogs.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns product catalog.|[ProductCatalogs](#schemaproductcatalogs)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find product calalog.|[Errors](#schemaerrors)|
+|200|OK|Returns product catalog.|[ProductCatalogs](#tocs_productcatalogs)|
+|404|Not Found|Unable to find product calalog.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -2317,10 +2324,10 @@ return-a-process-status.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns a link which is used for checking upload 
-processing status.|[Link](#schemalink)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to upload catalog.|[Errors](#schemaerrors)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Catalog has invalid structure.|[Errors](#schemaerrors)|
+|201|Created|Returns a link which is used for checking upload 
+processing status.|[Link](#tocs_link)|
+|400|Bad Request|Unable to upload catalog.|[Errors](#tocs_errors)|
+|404|Not Found|Catalog has invalid structure.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -2387,8 +2394,8 @@ Returns product catalog with defined id.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Return product catalog|[ProductCatalogEntity](#schemaproductcatalogentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find product catalog.|[Errors](#schemaerrors)|
+|200|OK|Return product catalog|[ProductCatalogEntity](#tocs_productcatalogentity)|
+|404|Not Found|Unable to find product catalog.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -2463,8 +2470,8 @@ Endpoint returns a link for checking process status.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns a link which for checking process status.|[Link](#schemalink)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find catalog.|[Errors](#schemaerrors)|
+|201|Created|Returns a link which for checking process status.|[Link](#tocs_link)|
+|404|Not Found|Unable to find catalog.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -2532,9 +2539,9 @@ The endpoint returns product catalog processing status.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns processing status.|[ProcessingStatus](#schemaprocessingstatus)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to return processing status.
-Invalid process identifier.|[Errors](#schemaerrors)|
+|200|OK|Returns processing status.|[ProcessingStatus](#tocs_processingstatus)|
+|404|Not Found|Unable to return processing status.
+Invalid process identifier.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -2605,9 +2612,9 @@ Accept product catalog categorization.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Customer is agree with tax categorization.|[Object](#schemaobject)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Invalid identifier, catalog not found
-or processing is not finished.|[Errors](#schemaerrors)|
+|201|Created|Customer is agree with tax categorization.|[Object](#tocs_object)|
+|404|Not Found|Invalid identifier, catalog not found
+or processing is not finished.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -2675,9 +2682,9 @@ new/updated products only.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns a product catalog.|[ProductCatalog](#schemaproductcatalog)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to return catalogue.|[Errors](#schemaerrors)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Invalid product catalog identifier.|[Errors](#schemaerrors)|
+|201|Created|Returns a product catalog.|[ProductCatalog](#tocs_productcatalog)|
+|400|Bad Request|Unable to return catalogue.|[Errors](#tocs_errors)|
+|404|Not Found|Invalid product catalog identifier.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -2779,8 +2786,8 @@ Filtering is avilable by
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns collection of the products.|[Products](#schemaproducts)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Product catalog not found.|[Errors](#schemaerrors)|
+|201|Created|Returns collection of the products.|[Products](#tocs_products)|
+|404|Not Found|Product catalog not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -2922,8 +2929,8 @@ Add product to the catalog.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Product added successfully.|[ProductEntity](#schemaproductentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to add product to catalog.|[Errors](#schemaerrors)|
+|201|Created|Product added successfully.|[ProductEntity](#tocs_productentity)|
+|404|Not Found|Unable to add product to catalog.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -3102,8 +3109,8 @@ Returns the productby product id.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns the product|[ProductEntity](#schemaproductentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|The product not found.|[Errors](#schemaerrors)|
+|201|Created|Returns the product|[ProductEntity](#tocs_productentity)|
+|404|Not Found|The product not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -3228,9 +3235,9 @@ Make same changes in the product.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|The product updated successfully.|[ProductEntity](#schemaproductentity)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to updateproduct.|[Errors](#schemaerrors)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|The product not found.|[Errors](#schemaerrors)|
+|204|No Content|The product updated successfully.|[ProductEntity](#tocs_productentity)|
+|400|Bad Request|Unable to updateproduct.|[Errors](#tocs_errors)|
+|404|Not Found|The product not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -3418,8 +3425,8 @@ for current sale point.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns logs|[Logs](#schemalogs)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to find logs by defined criterias.|[Errors](#schemaerrors)|
+|200|OK|Returns logs|[Logs](#tocs_logs)|
+|404|Not Found|Unable to find logs by defined criterias.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -3513,8 +3520,8 @@ Trnsactions can be selected by specified criteria.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns transactions|[Transactions](#schematransactions)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to get transactions with defined criterias.|[Errors](#schemaerrors)|
+|200|OK|Returns transactions|[Transactions](#tocs_transactions)|
+|404|Not Found|Unable to get transactions with defined criterias.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -3649,8 +3656,8 @@ Comma is used as a delimiter.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns transaction summary|[TransactionSummary](#schematransactionsummary)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to get transaction summary.|[Errors](#schemaerrors)|
+|200|OK|Returns transaction summary|[TransactionSummary](#tocs_transactionsummary)|
+|404|Not Found|Unable to get transaction summary.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -3727,8 +3734,8 @@ This endpoint is used by customers if they want to download transaction journal 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns journal in CVS format.|[Object](#schemaobject)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to create transaction journal.|[Errors](#schemaerrors)|
+|200|OK|Returns journal in CVS format.|[Object](#tocs_object)|
+|404|Not Found|Unable to create transaction journal.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -3800,10 +3807,10 @@ Total includes collection taxes.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Returns transaction with total.|[Transaction](#schematransaction)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Unable to add transaction.|[Errors](#schemaerrors)|
-|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Unable to add transaction.
-Transactions already registered.|[Errors](#schemaerrors)|
+|201|Created|Returns transaction with total.|[Transaction](#tocs_transaction)|
+|400|Bad Request|Unable to add transaction.|[Errors](#tocs_errors)|
+|409|Conflict|Unable to add transaction.
+Transactions already registered.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -3963,8 +3970,8 @@ Get transaction from the tax journal.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns a transaction.|[TransactionEntity](#schematransactionentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Transaction with specified id not found.|[Errors](#schemaerrors)|
+|200|OK|Returns a transaction.|[TransactionEntity](#tocs_transactionentity)|
+|404|Not Found|Transaction with specified id not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -4076,9 +4083,9 @@ Soft delete.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transaction deleted successfully.|[TransactionEntity](#schematransactionentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to delete transaction.
-Transaction with specified id not found.|[Errors](#schemaerrors)|
+|200|OK|Transaction deleted successfully.|[TransactionEntity](#tocs_transactionentity)|
+|404|Not Found|Unable to delete transaction.
+Transaction with specified id not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
@@ -4190,9 +4197,9 @@ Safe operation.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Transaction updated successfully.|[TransactionEntity](#schematransactionentity)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Unable to update transaction. 
-Transaction with specified id not found.|[Errors](#schemaerrors)|
+|204|No Content|Transaction updated successfully.|[TransactionEntity](#tocs_transactionentity)|
+|404|Not Found|Unable to update transaction. 
+Transaction with specified id not found.|[Errors](#tocs_errors)|
 
 </div>
 <div class="code-examples">
